@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Code, Users, ThumbsUp, BookOpen, Trophy, GitBranch } from 'lucide-react';
+import { Calendar, Code, Users, ThumbsUp, BookOpen, Trophy, GitBranch, ExternalLink } from 'lucide-react';
 
 // Education Timeline data
 const education = [
@@ -20,6 +20,13 @@ const education = [
     institution: 'Matriculation',
     details: 'St. Xaviers School, Durgapur'
   }
+];
+
+// Coding Profiles data
+const codingProfiles = [
+  { label: 'LeetCode', href: 'https://leetcode.com/username', description: 'Problem solving and algorithms' },
+  { label: 'CodeChef', href: 'https://codechef.com/users/username', description: 'Competitive programming' },
+  { label: 'Codeforces', href: 'https://codeforces.com/profile/username', description: 'Advanced algorithmic challenges' },
 ];
 
 // Skills data
@@ -89,13 +96,14 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="space-y-8"
           >
             <div className="flex items-center gap-3 mb-8">
               <BookOpen size={24} className="text-primary" />
               <h3 className="text-2xl font-heading font-bold">Education</h3>
             </div>
             
-            <div className="space-y-0">
+            <div className="space-y-6">
               {education.map((item, index) => (
                 <motion.div 
                   key={index}
@@ -112,6 +120,37 @@ const AboutSection = () => {
                   <p className="text-foreground/80">{item.details}</p>
                 </motion.div>
               ))}
+            </div>
+            
+            {/* Coding Profiles */}
+            <div className="mt-12">
+              <div className="flex items-center gap-3 mb-6">
+                <Code size={24} className="text-primary" />
+                <h3 className="text-2xl font-heading font-bold">Coding Profiles</h3>
+              </div>
+              
+              <div className="space-y-4">
+                {codingProfiles.map((profile, index) => (
+                  <motion.a
+                    key={index}
+                    href={profile.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="block p-4 bg-background/80 dark:bg-foreground/5 backdrop-blur-sm rounded-lg border border-primary/5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <h4 className="text-lg font-semibold mb-1">{profile.label}</h4>
+                    <p className="text-foreground/80 text-sm mb-2">{profile.description}</p>
+                    <div className="text-sm text-primary flex items-center gap-1">
+                      <span>View Profile</span>
+                      <ExternalLink size={14} />
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </motion.div>
 
