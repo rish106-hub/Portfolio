@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -59,37 +60,50 @@ const Navbar = () => {
         </motion.a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:block">
-          <ul className="flex space-x-1">
-            {navItems.map((item, index) => (
-              <motion.li 
-                key={item.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-              >
-                <a 
-                  href={item.href}
-                  className={cn(
-                    "nav-item",
-                    activeSection === item.href.substring(1) && "nav-item-active"
-                  )}
+        <div className="hidden md:flex items-center space-x-4">
+          <nav>
+            <ul className="flex space-x-1">
+              {navItems.map((item, index) => (
+                <motion.li 
+                  key={item.href}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
                 >
-                  {item.label}
-                </a>
-              </motion.li>
-            ))}
-          </ul>
-        </nav>
+                  <a 
+                    href={item.href}
+                    className={cn(
+                      "nav-item",
+                      activeSection === item.href.substring(1) && "nav-item-active"
+                    )}
+                  >
+                    {item.label}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </nav>
+          
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <ThemeToggle />
+          </motion.div>
+        </div>
         
         {/* Mobile Menu Trigger */}
-        <button 
-          className="md:hidden relative z-10"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button 
+            className="relative z-10"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
         
         {/* Mobile Menu */}
         <AnimatePresence>

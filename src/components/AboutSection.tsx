@@ -1,19 +1,24 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Code, Users, ThumbsUp, BookOpen, Trophy } from 'lucide-react';
+import { Calendar, Code, Users, ThumbsUp, BookOpen, Trophy, GitBranch } from 'lucide-react';
 
 // Education Timeline data
 const education = [
   {
-    period: '2020 - 2024',
-    institution: 'Computer Science Engineering',
-    details: 'Pursuing B.Tech at Rishihood University, Sonipat'
+    period: '2022 - 2024',
+    institution: 'B.Tech in Computer Science',
+    details: 'Newton School of Technology'
   },
   {
-    period: '2018 - 2020',
+    period: '2022 - 2024',
     institution: 'High School',
-    details: 'Completed intermediate education with focus on Science and Mathematics'
+    details: 'PURV International School'
+  },
+  {
+    period: '2011 - 2022',
+    institution: 'Matriculation',
+    details: 'St. Xaviers School, Durgapur'
   }
 ];
 
@@ -23,6 +28,11 @@ const skills = [
     category: 'Programming', 
     icon: <Code size={24} />,
     items: ['HTML', 'CSS', 'JavaScript', 'Python'] 
+  },
+  { 
+    category: 'Version Control', 
+    icon: <GitBranch size={24} />,
+    items: ['Git', 'Mercurial'] 
   },
   { 
     category: 'Soft Skills', 
@@ -123,7 +133,7 @@ const AboutSection = () => {
                 <motion.div
                   key={groupIndex}
                   variants={itemVariants}
-                  className="bg-white/40 backdrop-blur-sm p-6 rounded-xl border border-primary/5 shadow-sm card-hover-effect"
+                  className="bg-background/80 dark:bg-foreground/5 backdrop-blur-sm p-6 rounded-xl border border-primary/5 shadow-sm card-hover-effect"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-2 bg-primary/10 rounded-lg text-primary">

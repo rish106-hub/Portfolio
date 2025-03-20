@@ -38,6 +38,36 @@
     --radius: 0.75rem;
   }
 
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
+    
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 212 40% 86%;
+  }
+
   * {
     @apply border-border;
   }
@@ -135,6 +165,10 @@
   transition: transform 0.1s ease;
 }
 
+.dark .mouse-follower {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
 .card-hover-effect {
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -143,6 +177,10 @@
 .card-hover-effect:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card-hover-effect:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
 .mouse-hover-area {
@@ -162,6 +200,10 @@
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+}
+
+.dark .mouse-hover-area::after {
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .mouse-hover-area:hover::after {
