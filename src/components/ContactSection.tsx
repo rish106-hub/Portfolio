@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, Phone, MapPin, Linkedin, Github, Twitter, Instagram } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, Linkedin, Github, Twitter, Instagram, Code } from 'lucide-react';
 import { toast } from "@/hooks/use-toast";
 
 const socialLinks = [
@@ -9,6 +9,12 @@ const socialLinks = [
   { icon: <Github size={20} />, href: 'https://github.com/username', label: 'GitHub' },
   { icon: <Twitter size={20} />, href: 'https://twitter.com/username', label: 'Twitter' },
   { icon: <Instagram size={20} />, href: 'https://instagram.com/username', label: 'Instagram' },
+];
+
+const codingProfiles = [
+  { label: 'LeetCode', href: 'https://leetcode.com/username', description: 'Problem solving and algorithms' },
+  { label: 'CodeChef', href: 'https://codechef.com/users/username', description: 'Competitive programming' },
+  { label: 'Codeforces', href: 'https://codeforces.com/profile/username', description: 'Advanced algorithmic challenges' },
 ];
 
 // Animation variants
@@ -28,45 +34,6 @@ const itemVariants = {
 };
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    try {
-      // Here you would normally integrate with EmailJS or another service
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-      });
-      
-      // Reset form
-      setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Something went wrong",
-        description: "Your message couldn't be sent. Please try again later.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section id="contact" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
@@ -85,80 +52,42 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Form */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          {/* Coding Profiles */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            className="space-y-6"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <motion.div variants={itemVariants}>
-                <label htmlFor="name" className="block mb-2 font-medium">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="contact-input"
-                  placeholder="Your name"
-                />
-              </motion.div>
-              
-              <motion.div variants={itemVariants}>
-                <label htmlFor="email" className="block mb-2 font-medium">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="contact-input"
-                  placeholder="Your email address"
-                />
-              </motion.div>
-              
-              <motion.div variants={itemVariants}>
-                <label htmlFor="message" className="block mb-2 font-medium">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="contact-input resize-none"
-                  placeholder="Your message"
-                ></textarea>
-              </motion.div>
-              
-              <motion.div variants={itemVariants}>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-8 py-3 bg-primary text-primary-foreground rounded-lg transition-all hover:shadow-lg hover:-translate-y-1 duration-300 flex items-center justify-center gap-2"
+            <div className="flex items-center gap-3 mb-8">
+              <Code size={24} className="text-primary" />
+              <h3 className="text-2xl font-heading font-bold">Coding Profiles</h3>
+            </div>
+            
+            <div className="space-y-6">
+              {codingProfiles.map((profile, index) => (
+                <motion.a
+                  key={index}
+                  href={profile.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variants={itemVariants}
+                  className="block p-6 bg-white/40 dark:bg-foreground/5 backdrop-blur-sm rounded-xl border border-primary/5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
                 >
-                  {isSubmitting ? (
-                    <>Sending...</>
-                  ) : (
-                    <>
-                      Send Message
-                      <Send size={16} />
-                    </>
-                  )}
-                </button>
-              </motion.div>
-            </form>
+                  <h4 className="text-xl font-semibold mb-2">{profile.label}</h4>
+                  <p className="text-foreground/80 mb-3">{profile.description}</p>
+                  <div className="text-sm text-primary flex items-center gap-2">
+                    <span>View Profile</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-up-right">
+                      <path d="M7 7h10v10" />
+                      <path d="M7 17 17 7" />
+                    </svg>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
           </motion.div>
 
           {/* Contact Info & Social Links */}
@@ -169,7 +98,7 @@ const ContactSection = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <motion.div variants={itemVariants} className="bg-white/40 backdrop-blur-sm p-6 rounded-xl border border-primary/5 shadow-sm">
+            <motion.div variants={itemVariants} className="bg-white/40 dark:bg-foreground/5 backdrop-blur-sm p-6 rounded-xl border border-primary/5 shadow-sm">
               <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
               
               <div className="space-y-4">
@@ -219,7 +148,7 @@ const ContactSection = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-4 bg-white/40 backdrop-blur-sm rounded-xl border border-primary/5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center gap-3"
+                    className="p-4 bg-white/40 dark:bg-foreground/5 backdrop-blur-sm rounded-xl border border-primary/5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center gap-3"
                     aria-label={social.label}
                   >
                     <div className="text-primary">
