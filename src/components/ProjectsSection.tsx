@@ -17,9 +17,9 @@ const projects = [
     title: 'University Website Clone',
     description: 'A responsive clone of a university website with modern UI elements and user-friendly navigation.',
     techStack: ['HTML', 'CSS', 'Git', 'Vercel'],
-    github: 'https://github.com/username/university-website-clone',
-    demo: '#',
-    image: '/placeholder.svg'
+    github: 'https://github.com/rish106-hub/rish106-hub.github.io.git',
+    demo: 'https://rish106-hub-github-io.vercel.app',
+    image: 'public/University_clone.jpeg'
   },
   {
     title: 'Portfolio Website',
