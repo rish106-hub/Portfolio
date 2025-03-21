@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Code, Users, ThumbsUp, BookOpen, Trophy, GitBranch, ExternalLink, Download, Github, Linkedin, Twitter, Mail } from 'lucide-react';
@@ -102,7 +101,7 @@ const AboutSection = () => {
           <h2 className="section-heading">
             <span className="heading-accent">About Me</span>
           </h2>
-          <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed mb-6">
             A passionate tech enthusiast with a love for building innovative solutions 
             and exploring the intersection of technology and creativity.
           </p>

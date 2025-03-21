@@ -6,18 +6,18 @@ import { Award, ExternalLink } from 'lucide-react';
 // Certification data
 const certifications = [
   {
-    title: 'Google Data Analytics Professional Certificate',
+    title: 'Google Digital Marketing and E-Commerce Professional Certificate',
     issuer: 'Google',
-    date: 'May 2023',
-    link: '#',
-    image: '/placeholder.svg'
+    date: 'Dec 2024',
+    link: 'https://www.credly.com/badges/a37ea25d-b4a6-4ac7-9087-2bd508f77037/linked_in_profile',
+    image: '/Google_prof_DM.jpeg'
   },
   {
-    title: 'IBM Full Stack Cloud Developer',
+    title: 'Python for Data Science and AI ',
     issuer: 'IBM',
-    date: 'December 2022',
-    link: '#',
-    image: '/placeholder.svg'
+    date: 'November 2024',
+    link: 'https://www.credly.com/badges/8c5ca7d7-6f65-4858-b739-9ff3e0a80d77/linked_in_profile',
+    image: '/IBM.jpeg'
   },
   {
     title: 'Python for Data Science',
