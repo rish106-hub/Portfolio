@@ -24,8 +24,8 @@ const projects = [
     title: 'Portfolio Website',
     description: 'A modern, responsive portfolio website with smooth animations and interactive elements.',
     techStack: ['React', 'Tailwind CSS', 'Framer Motion'],
-    github: '#',
-    demo: '#',
+    github: 'https://github.com/rish106-hub/Portfolio',
+    demo: 'https://portfolio-rho-six-65.vercel.app',
     image: '/portfolio.jpeg'
   },
   {
