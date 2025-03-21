@@ -9,24 +9,24 @@ const experiences = [
     position: "Founder's Office Intern",
     company: "Rishihood University",
     period: "Jun 2022 - Jul 2022",
-    location: "Sonipat, Haryana",
+    location: "Delhi NCR, Haryana , India",
     description: "Worked closely with the founding team on strategic initiatives and project management. Contributed to academic planning and community engagement efforts.",
     achievements: [
-      "Assisted in organizing university-wide events",
-      "Contributed to strategic planning sessions",
-      "Helped develop community outreach programs"
+      "Currently spearheading the design and development of a next-generation communications curriculum for incoming learners, setting new benchmarks in education and hiring.",
+      "Currently driving measurable improvements in learner performance and employability through outcome-focused initiatives.",
+      "Contributed to strategic planning sessions"
     ]
   },
   {
     position: "Automation Intern",
     company: "bnBeyond",
     period: "Jan 2022 - Mar 2022",
-    location: "Remote",
+    location: "Remote, Dubai, UAE",
     description: "Focused on developing automation solutions to improve business processes and workflow efficiency. Utilized Python and related technologies to build practical tools.",
     achievements: [
-      "Developed scripts to automate repetitive tasks",
-      "Improved workflow efficiency by 30%",
-      "Implemented data processing automation tools"
+      "Optimized Fiscal Efficiency: Increased fiscal efficiency by 20% within 15 days through the implementation of structured frameworks.",
+      "Boosted Guest Acquisition: Raised the company’s guest acquisition rate from 5% to 15% within 25 days through targeted strategies.",
+      "Reduced Acquisition Costs: Decreased customer acquisition costs by 5% through effective cost management and process optimization."
     ]
   }
 ];

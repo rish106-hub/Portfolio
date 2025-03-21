@@ -5,7 +5,7 @@ import { ArrowDown } from 'lucide-react';
 
 const HeroSection = () => {
   const [text, setText] = useState('');
-  const fullText = "Hey there! I'm Rishav Dewan – a passionate tech enthusiast blending AI, automation, and modern web experiences!";
+  const fullText = "Hi this is Rishav — I build intelligent solutions with AI and Modern Web Tech";
   
   useEffect(() => {
     let currentIndex = 0;

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Instagram, Send } from 'lucide-react';
@@ -10,10 +9,10 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 
 const socialLinks = [
-  { icon: <Linkedin size={20} />, href: 'https://linkedin.com/in/username', label: 'LinkedIn' },
-  { icon: <Github size={20} />, href: 'https://github.com/username', label: 'GitHub' },
-  { icon: <Twitter size={20} />, href: 'https://twitter.com/username', label: 'Twitter' },
-  { icon: <Instagram size={20} />, href: 'https://instagram.com/username', label: 'Instagram' },
+  { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/rishav-dewan/', label: 'LinkedIn' },
+  { icon: <Github size={20} />, href: 'https://github.com/rish106-hub', label: 'GitHub' },
+  { icon: <Twitter size={20} />, href: 'https://x.com/dewan_rishav', label: 'Twitter' },
+  { icon: <Instagram size={20} />, href: 'https://www.instagram.com/rishav_dewan/', label: 'Instagram' },
 ];
 
 // Animation variants
@@ -132,8 +131,8 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-medium mb-1">Email</h4>
-                    <a href="mailto:contact@example.com" className="text-foreground/80 hover:text-primary transition-colors">
-                      contact@example.com
+                    <a href="mailto:rishavdewan10@gmail.com" className="text-foreground/80 hover:text-primary transition-colors">
+                      rishavdewan10@gmail.com
                     </a>
                   </div>
                 </div>
@@ -144,8 +143,8 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-medium mb-1">Phone</h4>
-                    <a href="tel:+1234567890" className="text-foreground/80 hover:text-primary transition-colors">
-                      +1 (234) 567-890
+                    <a href="tel:+919749452397" className="text-foreground/80 hover:text-primary transition-colors">
+                      (+91) 9749452397
                     </a>
                   </div>
                 </div>
@@ -156,7 +155,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-medium mb-1">Location</h4>
-                    <p className="text-foreground/80">New Delhi, India</p>
+                    <p className="text-foreground/80">Delhi NCR, India</p>
                   </div>
                 </div>
               </div>

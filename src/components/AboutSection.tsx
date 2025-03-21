@@ -25,17 +25,17 @@ const education = [
 
 // Coding Profiles data
 const codingProfiles = [
-  { label: 'LeetCode', href: 'https://leetcode.com/username', description: 'Problem solving and algorithms' },
-  { label: 'CodeChef', href: 'https://codechef.com/users/username', description: 'Competitive programming' },
-  { label: 'Codeforces', href: 'https://codeforces.com/profile/username', description: 'Advanced algorithmic challenges' },
+  { label: 'LeetCode', href: 'https://leetcode.com/u/rishav_dewan/', description: 'Problem solving and algorithms' },
+  { label: 'CodeChef', href: 'https://www.codechef.com/users/rishav_dewan', description: 'Competitive programming' },
+  { label: 'Codeforces', href: 'https://codeforces.com/profile/rishavdewan10', description: 'Advanced algorithmic challenges' },
 ];
 
 // Social profiles data
 const socialProfiles = [
-  { label: 'GitHub', href: 'https://github.com/username', icon: <Github size={18} /> },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/username', icon: <Linkedin size={18} /> },
-  { label: 'Twitter', href: 'https://twitter.com/username', icon: <Twitter size={18} /> },
-  { label: 'Email', href: 'mailto:your.email@example.com', icon: <Mail size={18} /> },
+  { label: 'GitHub', href: 'https://github.com/rish106-hub', icon: <Github size={18} /> },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rishav-dewan/', icon: <Linkedin size={18} /> },
+  { label: 'Twitter', href: 'https://x.com/dewan_rishav', icon: <Twitter size={18} /> },
+  { label: 'Email', href: 'mailto:rishavdewan10@gmail.com', icon: <Mail size={18} /> },
 ];
 
 // Skills data
@@ -82,7 +82,7 @@ const AboutSection = () => {
   const handleDownloadResume = () => {
     // Create a link to download the resume
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // Assume you have a resume.pdf in the public folder
+    link.href = '/Resume-RISHAV DEWAN-20.pdf'; 
     link.download = 'Rishav_Dewan_Resume.pdf';
     document.body.appendChild(link);
     link.click();

@@ -9,9 +9,8 @@ const projects = [
     title: 'Email Spam Filter',
     description: 'Machine learning-based email classification system that automatically detects and filters spam emails with high accuracy.',
     techStack: ['Python', 'Flask', 'GenAI', 'Machine Learning'],
-    github: 'https://github.com/username/email-spam-filter',
-    demo: '#',
-    image: '/placeholder.svg'
+    github: 'https://github.com/rish106-hub/EmailSpamFilter',
+    image: '/Email-spam.jpeg'
   },
   {
     title: 'University Website Clone',
@@ -27,15 +26,15 @@ const projects = [
     techStack: ['React', 'Tailwind CSS', 'Framer Motion'],
     github: '#',
     demo: '#',
-    image: '/placeholder.svg'
+    image: '/portfolio.jpeg'
   },
   {
-    title: 'AI Image Generator',
-    description: 'Web application that utilizes AI to generate unique images based on text prompts.',
-    techStack: ['JavaScript', 'OpenAI API', 'React'],
-    github: '#',
-    demo: '#',
-    image: '/placeholder.svg'
+    title: 'Coffee store',
+    description: 'The landing page of an imaginary store named "Sonipat Coffee House" made using HTML and CSS .',
+    techStack: ['HTML', 'CSS', 'Git'],
+    github: 'https://github.com/rish106-hub/coffee_store',
+    demo: 'https://coffee-store-umber.vercel.app',
+    image: '/Coffee.jpeg'
   }
 ];
 
