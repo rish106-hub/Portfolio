@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Code, Users, ThumbsUp, BookOpen, Trophy, GitBranch, ExternalLink } from 'lucide-react';
+import { Calendar, Code, Users, ThumbsUp, BookOpen, Trophy, GitBranch, ExternalLink, Download, Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 // Education Timeline data
 const education = [
@@ -27,6 +28,14 @@ const codingProfiles = [
   { label: 'LeetCode', href: 'https://leetcode.com/username', description: 'Problem solving and algorithms' },
   { label: 'CodeChef', href: 'https://codechef.com/users/username', description: 'Competitive programming' },
   { label: 'Codeforces', href: 'https://codeforces.com/profile/username', description: 'Advanced algorithmic challenges' },
+];
+
+// Social profiles data
+const socialProfiles = [
+  { label: 'GitHub', href: 'https://github.com/username', icon: <Github size={18} /> },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/username', icon: <Linkedin size={18} /> },
+  { label: 'Twitter', href: 'https://twitter.com/username', icon: <Twitter size={18} /> },
+  { label: 'Email', href: 'mailto:your.email@example.com', icon: <Mail size={18} /> },
 ];
 
 // Skills data
@@ -70,6 +79,16 @@ const itemVariants = {
 };
 
 const AboutSection = () => {
+  const handleDownloadResume = () => {
+    // Create a link to download the resume
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // Assume you have a resume.pdf in the public folder
+    link.download = 'Rishav_Dewan_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="about" className="py-20 px-6 bg-background/80 dark:bg-secondary/10">
       <div className="max-w-7xl mx-auto">
@@ -152,7 +171,7 @@ const AboutSection = () => {
                     <h4 className="text-lg font-semibold mb-1 group-hover:text-primary transition-colors">{profile.label}</h4>
                     <p className="text-foreground/70 text-sm mb-2">{profile.description}</p>
                     <div className="text-sm text-primary flex items-center gap-1 opacity-80 group-hover:opacity-100">
-                      <span>View Profile</span>
+                      <span>View Profile</span>.
                       <ExternalLink size={14} className="group-hover:translate-x-0.5 transition-transform" />
                     </div>
                   </motion.a>
@@ -203,6 +222,51 @@ const AboutSection = () => {
                     </div>
                   </motion.div>
                 ))}
+              </div>
+
+              {/* Additional row for social profiles and resume download */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                {/* Social Profiles */}
+                <motion.div
+                  variants={itemVariants}
+                  className="bg-background/80 dark:bg-foreground/5 backdrop-blur-sm p-6 rounded-xl border border-primary/5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full"
+                >
+                  <h4 className="text-lg font-semibold mb-4">Connect With Me</h4>
+                  <div className="flex flex-wrap gap-3">
+                    {socialProfiles.map((profile, index) => (
+                      <a
+                        key={index}
+                        href={profile.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary/5 hover:bg-primary/10 rounded-lg transition-colors"
+                        aria-label={`Connect on ${profile.label}`}
+                      >
+                        {profile.icon}
+                        <span className="text-sm font-medium">{profile.label}</span>
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Resume Download */}
+                <motion.div
+                  variants={itemVariants}
+                  className="bg-background/80 dark:bg-foreground/5 backdrop-blur-sm p-6 rounded-xl border border-primary/5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full flex flex-col justify-center items-center"
+                >
+                  <h4 className="text-lg font-semibold mb-4">Download My Resume</h4>
+                  <p className="text-sm text-foreground/70 mb-4 text-center">
+                    Get a detailed overview of my skills, experience, and qualifications.
+                  </p>
+                  <Button 
+                    onClick={handleDownloadResume}
+                    className="group flex items-center gap-2"
+                    size="lg"
+                  >
+                    <Download className="group-hover:translate-y-0.5 transition-transform" size={18} />
+                    Download Resume
+                  </Button>
+                </motion.div>
               </div>
             </div>
           </motion.div>
