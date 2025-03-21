@@ -13,12 +13,6 @@ const Footer = () => {
           <div className="text-primary-foreground/80 text-sm flex items-center gap-1">
             &copy; {currentYear} Rishav Dewan. All rights reserved.
           </div>
-          
-          <div className="flex items-center gap-1 text-primary-foreground/80 text-sm">
-            <span>Made with</span>
-            <Heart size={14} className="text-red-400 fill-red-400" />
-            <span>using modern web technologies</span>
-          </div>
         </div>
       </div>
     </footer>
