@@ -18,7 +18,7 @@ const projects = [
     techStack: ['HTML', 'CSS', 'Git', 'Vercel'],
     github: 'https://github.com/rish106-hub/rish106-hub.github.io.git',
     demo: 'https://rish106-hub-github-io.vercel.app',
-    image: 'public/University_clone.jpeg'
+    image: '/University_clone.jpeg'
   },
   {
     title: 'Portfolio Website',
