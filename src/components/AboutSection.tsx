@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 // Education Timeline data
 const education = [
   {
-    period: '2022 - 2024',
+    period: '2024 - 2028',
     institution: 'B.Tech in Computer Science',
     details: 'Newton School of Technology'
   },
