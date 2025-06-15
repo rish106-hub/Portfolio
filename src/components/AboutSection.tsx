@@ -12,7 +12,7 @@ const education = [
   },
   {
     period: '2022 - 2024',
-    institution: 'High School',
+    institution: 'Higher Secondary',
     details: 'PURV International School'
   },
   {

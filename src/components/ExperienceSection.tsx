@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, ExternalLink } from 'lucide-react';
 
 // Experience data
 const experiences = [
@@ -102,24 +102,12 @@ const ExperienceSection = () => {
                   </h5>
                   
                   <ul className="space-y-2">
-                    {experience.achievements.map((achievement, achIndex) => {
-                      const [boldPart, ...rest] = achievement.split(':');
-                      return (
-                        <li key={achIndex} className="flex items-start">
-                          <span className="text-primary mr-2">•</span>
-                          <span>
-                            {rest.length > 0 ? (
-                              <>
-                                <strong>{boldPart}:</strong>
-                                {rest.join(':')}
-                              </>
-                            ) : (
-                              achievement
-                            )}
-                          </span>
-                        </li>
-                      );
-                    })}
+                    {experience.achievements.map((achievement, achIndex) => (
+                      <li key={achIndex} className="flex items-start">
+                        <span className="text-primary mr-2">•</span>
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
