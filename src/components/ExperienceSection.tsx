@@ -102,12 +102,24 @@ const ExperienceSection = () => {
                   </h5>
                   
                   <ul className="space-y-2">
-                    {experience.achievements.map((achievement, achIndex) => (
-                      <li key={achIndex} className="flex items-start">
-                        <span className="text-primary mr-2">•</span>
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
+                    {experience.achievements.map((achievement, achIndex) => {
+                      const [boldPart, ...rest] = achievement.split(':');
+                      return (
+                        <li key={achIndex} className="flex items-start">
+                          <span className="text-primary mr-2">•</span>
+                          <span>
+                            {rest.length > 0 ? (
+                              <>
+                                <strong>{boldPart}:</strong>
+                                {rest.join(':')}
+                              </>
+                            ) : (
+                              achievement
+                            )}
+                          </span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>
