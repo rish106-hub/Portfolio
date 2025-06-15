@@ -1,10 +1,16 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, ExternalLink } from 'lucide-react';
 
 // Certification data
 const certifications = [
+  {
+    title: 'IBM AI Product Management Course',
+    issuer: 'IBM via Coursera',
+    date: 'June 2025',
+    link: 'https://coursera.org/share/a0e450c04e54fa286c50fb97767aa434',
+    image: '/IBM_AI_PM.jpeg'
+  },
   {
     title: 'Google Digital Marketing and E-Commerce Professional Certificate',
     issuer: 'Google',
@@ -13,25 +19,18 @@ const certifications = [
     image: '/Google_prof_DM.jpeg'
   },
   {
+    title: 'Financial Markets',
+    issuer: 'Yale University',
+    date: 'January 2025',
+    link: 'https://coursera.org/share/bb66c84a68010a39fae9fba32304bfec',
+    image: '/Yale_FM.jpeg'
+  },
+  {
     title: 'Python for Data Science and AI ',
     issuer: 'IBM',
     date: 'November 2024',
     link: 'https://www.credly.com/badges/8c5ca7d7-6f65-4858-b739-9ff3e0a80d77/linked_in_profile',
     image: '/IBM.jpeg'
-  },
-  {
-    title: 'Python for Data Science',
-    issuer: 'IBM via Coursera',
-    date: 'October 2022',
-    link: '#',
-    image: '/placeholder.svg'
-  },
-  {
-    title: 'Web Development Bootcamp',
-    issuer: 'Udemy',
-    date: 'August 2022',
-    link: '#',
-    image: '/placeholder.svg'
   }
 ];
 
@@ -86,8 +85,13 @@ const CertificationsSection = () => {
               variants={itemVariants}
               className="group bg-white/40 rounded-xl overflow-hidden border border-primary/5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="h-32 bg-secondary relative flex items-center justify-center p-4">
-                <Award size={40} className="text-primary/40" />
+              <div className="h-48 bg-secondary relative flex items-center justify-center p-4 overflow-hidden">
+                <img 
+                  src={cert.image} 
+                  alt={cert.title}
+                  className="w-full h-full object-cover rounded-t-xl"
+                  loading="lazy"
+                />
                 <div className="absolute inset-0 bg-primary/5 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <ExternalLink size={24} className="text-primary" />
                 </div>

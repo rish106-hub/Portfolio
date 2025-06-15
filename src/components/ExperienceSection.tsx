@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
@@ -14,7 +13,6 @@ const experiences = [
     achievements: [
       "Currently spearheading the design and development of a next-generation communications curriculum for incoming learners, setting new benchmarks in education and hiring.",
       "Currently driving measurable improvements in learner performance and employability through outcome-focused initiatives.",
-      "Contributed to strategic planning sessions"
     ]
   },
   {
@@ -25,7 +23,7 @@ const experiences = [
     description: "Focused on developing automation solutions to improve business processes and workflow efficiency. Utilized Python and related technologies to build practical tools.",
     achievements: [
       "Optimized Fiscal Efficiency: Increased fiscal efficiency by 20% within 15 days through the implementation of structured frameworks.",
-      "Boosted Guest Acquisition: Raised the company’s guest acquisition rate from 5% to 15% within 25 days through targeted strategies.",
+      "Boosted Guest Acquisition: Raised the company's guest acquisition rate from 5% to 15% within 25 days through targeted strategies.",
       "Reduced Acquisition Costs: Decreased customer acquisition costs by 5% through effective cost management and process optimization."
     ]
   }
@@ -104,12 +102,24 @@ const ExperienceSection = () => {
                   </h5>
                   
                   <ul className="space-y-2">
-                    {experience.achievements.map((achievement, achIndex) => (
-                      <li key={achIndex} className="flex items-start">
-                        <span className="text-primary mr-2">•</span>
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
+                    {experience.achievements.map((achievement, achIndex) => {
+                      const [boldPart, ...rest] = achievement.split(':');
+                      return (
+                        <li key={achIndex} className="flex items-start">
+                          <span className="text-primary mr-2">•</span>
+                          <span>
+                            {rest.length > 0 ? (
+                              <>
+                                <strong>{boldPart}:</strong>
+                                {rest.join(':')}
+                              </>
+                            ) : (
+                              achievement
+                            )}
+                          </span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>

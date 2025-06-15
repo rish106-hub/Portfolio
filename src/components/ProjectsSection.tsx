@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, Code } from 'lucide-react';
@@ -21,12 +20,12 @@ const projects = [
     image: '/University_clone.jpeg'
   },
   {
-    title: 'Portfolio Website',
-    description: 'A modern, responsive portfolio website with smooth animations and interactive elements.',
-    techStack: ['React', 'Tailwind CSS', 'Framer Motion'],
-    github: 'https://github.com/rish106-hub/Portfolio',
-    demo: 'https://portfolio-rho-six-65.vercel.app',
-    image: '/portfolio.jpeg'
+    title: 'ShopScore ',
+    description: 'A modern, responsive ecommerce website with smooth animations and interactive elements.',
+    techStack: ['HTML', 'CSS', 'JavaScript' , 'React' , 'Git'],
+    github: 'https://github.com/rish106-hub/ShopScore_Capstone_Sem_2',
+    demo: 'https://shop-score-capstone-sem-2.vercel.app/login',
+    image: '/Shopscore.jpeg'
   },
   {
     title: 'Coffee store',
@@ -91,14 +90,22 @@ const ProjectsSection = () => {
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 bg-white"
                 />
                 <div className="absolute inset-0 bg-primary/5 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <a href={project.github} className="p-3 bg-white rounded-full shadow-md hover:scale-110 transition-transform" aria-label="View on GitHub">
-                    <Github size={20} />
+                  <a
+                    href={project.github}
+                    className="p-3 bg-white/80 dark:bg-neutral-900/80 border border-gray-300 dark:border-gray-700 rounded-full shadow-md hover:scale-110 transition-transform"
+                    aria-label="View on GitHub"
+                  >
+                    <Github size={20} className="text-black dark:text-white" />
                   </a>
-                  <a href={project.demo} className="p-3 bg-white rounded-full shadow-md hover:scale-110 transition-transform" aria-label="View Live Demo">
-                    <ExternalLink size={20} />
+                  <a
+                    href={project.demo}
+                    className="p-3 bg-white/80 dark:bg-neutral-900/80 border border-gray-300 dark:border-gray-700 rounded-full shadow-md hover:scale-110 transition-transform"
+                    aria-label="View Live Demo"
+                  >
+                    <ExternalLink size={20} className="text-black dark:text-white" />
                   </a>
                 </div>
               </div>
