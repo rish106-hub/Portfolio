@@ -40,14 +40,30 @@ const socialProfiles = [
 // Skills data
 const skills = [
   { 
-    category: 'Programming', 
+    category: 'Languages', 
     icon: <Code size={24} />,
-    items: ['HTML', 'CSS', 'JavaScript', 'Python'] 
+    items: ['Java', 'Python3', 'Kotlin', 'SQL'] 
+  },
+  { 
+    category: 'Libraries & Frameworks', 
+    icon: <Code size={24} />,
+    items: ['JavaScript', 'React.js'] 
   },
   { 
     category: 'Version Control', 
     icon: <GitBranch size={24} />,
-    items: ['Git', 'Mercurial'] 
+    items: [
+      'Git',
+      'Mercurial',
+      'Subversion'
+    ] 
+  },
+  { 
+    category: 'Currently exploring', 
+    icon: <BookOpen size={24} />,
+    items: [
+      'Android Development','iOS Development','Backend Development'
+    ] 
   },
   { 
     category: 'Soft Skills', 
