@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Instagram, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Instagram, Send, WhatsApp } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
@@ -10,8 +10,8 @@ import { Checkbox } from '@/components/ui/checkbox';
 
 const socialLinks = [
   { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/rishav-dewan/', label: 'LinkedIn' },
+  { icon: <Phone size={20} />, href: 'https://wa.me/919749452397?text=Hi%20Rishav%20%2C%20I%20just%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20something%20with%20you', label: 'WhatsApp' },
   { icon: <Github size={20} />, href: 'https://github.com/rish106-hub', label: 'GitHub' },
-  { icon: <Twitter size={20} />, href: 'https://x.com/dewan_rishav', label: 'Twitter' },
   { icon: <Instagram size={20} />, href: 'https://www.instagram.com/rishav_dewan/', label: 'Instagram' },
 ];
 
