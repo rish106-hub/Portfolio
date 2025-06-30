@@ -24,7 +24,7 @@ const projects = [
     description: 'A modern, responsive ecommerce website with smooth animations and interactive elements.',
     techStack: ['HTML', 'CSS', 'JavaScript' , 'React' , 'Git'],
     github: 'https://github.com/rish106-hub/ShopScore_Capstone_Sem_2',
-    demo: 'https://shop-score-capstone-sem-2.vercel.app/login',
+    demo: 'https://shop-score-capstone-sem-2.vercel.app',
     image: '/Shopscore.jpeg'
   },
   {
