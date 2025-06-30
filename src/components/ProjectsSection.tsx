@@ -95,6 +95,8 @@ const ProjectsSection = () => {
                 <div className="absolute inset-0 bg-primary/5 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                   <a
                     href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="p-3 bg-white/80 dark:bg-neutral-900/80 border border-gray-300 dark:border-gray-700 rounded-full shadow-md hover:scale-110 transition-transform"
                     aria-label="View on GitHub"
                   >
@@ -102,8 +104,10 @@ const ProjectsSection = () => {
                   </a>
                   <a
                     href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="p-3 bg-white/80 dark:bg-neutral-900/80 border border-gray-300 dark:border-gray-700 rounded-full shadow-md hover:scale-110 transition-transform"
-                    aria-label="View Live Demo"
+                    aria-label="View Demo"
                   >
                     <ExternalLink size={20} className="text-black dark:text-white" />
                   </a>
