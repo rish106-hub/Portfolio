@@ -28,11 +28,11 @@ const projects = [
     image: '/Shopscore.jpeg'
   },
   {
-    title: 'Coffee store',
-    description: 'The landing page of an imaginary store named "Sonipat Coffee House" made using HTML and CSS .',
-    techStack: ['HTML', 'CSS', 'Git'],
-    github: 'https://github.com/rish106-hub/coffee_store',
-    demo: 'https://coffee-store-umber.vercel.app',
+    title: 'Zerodha MCP',
+    description: 'An AI Agent and MCP server made on Zerodha to automate and simulate real-time trading operations.',
+    techStack: ['Zerodha SDK', 'Claude', 'MCP'],
+    github: 'https://github.com/rish106-hub/Zerodha_mcp',
+    demo: 'https://github.com/rish106-hub/Zerodha_mcp',
     image: '/Coffee.jpeg'
   }
 ];
