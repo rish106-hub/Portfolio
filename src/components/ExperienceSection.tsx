@@ -23,8 +23,8 @@ const experiences = [
     location: "Delhi NCR, Haryana , India",
     description: "Worked closely with the founding team on strategic initiatives and project management. Contributed to academic planning and community engagement efforts.",
     achievements: [
-      "Currently spearheading the design and development of a next-generation communications curriculum for incoming learners, setting new benchmarks in education and hiring.",
-      "Currently driving measurable improvements in learner performance and employability through outcome-focused initiatives.",
+      "Spearheaded the design and development of a next-generation communications curriculum for incoming learners, setting new benchmarks in education and hiring.",
+      "Drove measurable improvements in learner performance and employability through outcome-focused initiatives."
     ]
   },
   {
