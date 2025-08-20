@@ -47,7 +47,7 @@ const skills = [
   { 
     category: 'Libraries & Frameworks', 
     icon: <Code size={24} />,
-    items: ['JavaScript', 'React.js'] 
+    items: ['JavaScript', 'React.js','Next.js'] 
   },
   { 
     category: 'Version Control', 
