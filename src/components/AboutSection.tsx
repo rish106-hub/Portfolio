@@ -53,7 +53,7 @@ const skills = [
     category: 'Version Control', 
     icon: <GitBranch size={24} />,
     items: [
-      'Git',
+      'Git/Github',
       'Mercurial',
       'Subversion'
     ] 
