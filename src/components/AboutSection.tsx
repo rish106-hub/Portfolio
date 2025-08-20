@@ -73,11 +73,9 @@ const skills = [
   { 
     category: 'Others', 
     icon: <ThumbsUp size={24} />,
-    items: ['Social Media', 'Content Creation', 'UI/UX Design'] 
+    items: ['Product Management', 'Consulting', 'UI/UX Design'] 
   }
 ];
-
-// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {

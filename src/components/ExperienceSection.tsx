@@ -5,9 +5,21 @@ import { Briefcase, Calendar, MapPin, ExternalLink } from 'lucide-react';
 // Experience data
 const experiences = [
   {
+    position: "Product and Growth Associate Intern",
+    company: "Enzo Lab | Product Design, UX/UI & Strategy Studio",
+    period: "Jul 2025 - current",
+    location: "Delhi NCR, Haryana , India",
+    description: "Worked closely with the founding team on strategic initiatives and project management. Contributed to academic planning and community engagement efforts.",
+    achievements: [
+      "Conducting in-depth market research and competitive analysis to identify user needs, product gaps, and actionable insights.",
+      "Supporting growth strategy execution by tracking KPIs, improving engagement, and contributing to user acquisition campaigns.",
+      "Collaborating cross-functionally with product, design, and content teams to drive innovation and streamline go-to-market efforts.",
+    ]
+  },
+  {
     position: "Founder's Office Intern",
     company: "Rishihood University",
-    period: "Jun 2022 - Jul 2022",
+    period: "Feb 2025 - Jul 2025",
     location: "Delhi NCR, Haryana , India",
     description: "Worked closely with the founding team on strategic initiatives and project management. Contributed to academic planning and community engagement efforts.",
     achievements: [
@@ -18,7 +30,7 @@ const experiences = [
   {
     position: "Automation Intern",
     company: "bnBeyond",
-    period: "Jan 2022 - Mar 2022",
+    period: "Nov 2024 - Dec 2024",
     location: "Remote, Dubai, UAE",
     description: "Focused on developing automation solutions to improve business processes and workflow efficiency. Utilized Python and related technologies to build practical tools.",
     achievements: [
