@@ -51,7 +51,21 @@ const ContactSection = () => {
     setFormData(prev => ({ ...prev, consent: checked }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const sendWhatsAppMessage = (name: string, email: string, subject: string, message: string) => {
+    // Format the message for WhatsApp
+    const introMessage = `Hi Rishav, I am ${name}, my contact email is ${email}`;
+    const fullMessage = subject 
+      ? `${introMessage}%0A%0ASubject: ${subject}%0A%0A${message}`
+      : `${introMessage}%0A%0A${message}`;
+    
+    // Create WhatsApp URL with the formatted message
+    const whatsappUrl = `https://wa.me/919749452397?text=${fullMessage}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.name || !formData.email || !formData.message) {
@@ -74,11 +88,19 @@ const ContactSection = () => {
 
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send message via WhatsApp
+      sendWhatsAppMessage(
+        formData.name,
+        formData.email,
+        formData.subject,
+        formData.message
+      );
+      
+      // Show success message
       toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+        title: "Redirecting to WhatsApp",
+        description: "You'll be redirected to WhatsApp to send your message.",
       });
       
       // Reset form
@@ -89,9 +111,15 @@ const ContactSection = () => {
         message: '',
         consent: false
       });
-      
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to open WhatsApp. Please try again or contact me directly.",
+        variant: "destructive"
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
