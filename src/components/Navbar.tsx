@@ -7,8 +7,9 @@ import ThemeToggle from './ThemeToggle';
 
 const navItems = [
   { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Profile', href: '#about' },
+  { label: 'Products', href: '#projects' },
+  { label: 'Arthakram', href: '#arthakram' },
   { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -22,8 +23,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Determine active section
-      const sections = ['home', 'about', 'projects', 'experience', 'contact'];
+      const sections = ['home', 'about', 'projects', 'arthakram', 'experience', 'contact'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (!element) return false;

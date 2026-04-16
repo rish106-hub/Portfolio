@@ -1,0 +1,63 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0F1117"/>
+  <g opacity="0.28">
+    <path d="M0 100H1600" stroke="#2A3140"/>
+    <path d="M0 220H1600" stroke="#2A3140"/>
+    <path d="M0 340H1600" stroke="#2A3140"/>
+    <path d="M0 460H1600" stroke="#2A3140"/>
+    <path d="M0 580H1600" stroke="#2A3140"/>
+    <path d="M0 700H1600" stroke="#2A3140"/>
+    <path d="M0 820H1600" stroke="#2A3140"/>
+    <path d="M160 0V900" stroke="#2A3140"/>
+    <path d="M380 0V900" stroke="#2A3140"/>
+    <path d="M600 0V900" stroke="#2A3140"/>
+    <path d="M820 0V900" stroke="#2A3140"/>
+    <path d="M1040 0V900" stroke="#2A3140"/>
+    <path d="M1260 0V900" stroke="#2A3140"/>
+    <path d="M1480 0V900" stroke="#2A3140"/>
+  </g>
+  <circle cx="1274" cy="164" r="200" fill="url(#paint0_radial)" fill-opacity="0.75"/>
+  <circle cx="270" cy="746" r="220" fill="url(#paint1_radial)" fill-opacity="0.65"/>
+  <rect x="170" y="132" width="1260" height="636" rx="34" fill="url(#paint2_linear)" stroke="url(#paint3_linear)" stroke-width="2"/>
+  <rect x="242" y="197" width="414" height="504" rx="28" fill="#171C24" fill-opacity="0.92" stroke="#37535B"/>
+  <rect x="298" y="257" width="114" height="114" rx="18" fill="#122129"/>
+  <path d="M334 311H376" stroke="#7CE4F8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M334 340H430" stroke="#7CE4F8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M334 369H392" stroke="#7CE4F8" stroke-width="10" stroke-linecap="round"/>
+  <rect x="299" y="428" width="290" height="22" rx="11" fill="#233039"/>
+  <rect x="299" y="469" width="247" height="22" rx="11" fill="#1C262D"/>
+  <rect x="299" y="510" width="272" height="22" rx="11" fill="#1C262D"/>
+  <rect x="299" y="551" width="224" height="22" rx="11" fill="#1C262D"/>
+  <circle cx="900" cy="430" r="144" fill="#121A22" stroke="#335160" stroke-width="2"/>
+  <circle cx="900" cy="430" r="94" fill="#0D141B" stroke="#3A6270" stroke-width="2"/>
+  <path d="M845 430H955" stroke="#8AF0FF" stroke-width="10" stroke-linecap="round"/>
+  <path d="M900 375V485" stroke="#8AF0FF" stroke-width="10" stroke-linecap="round"/>
+  <path d="M1003 333L1142 260" stroke="#56DDF7" stroke-width="4" stroke-dasharray="10 12"/>
+  <path d="M1003 523L1142 596" stroke="#56DDF7" stroke-width="4" stroke-dasharray="10 12"/>
+  <rect x="1137" y="213" width="186" height="112" rx="24" fill="#18232D" fill-opacity="0.95" stroke="#406877"/>
+  <text x="1173" y="272" fill="#ECF5FF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">AI Score</text>
+  <text x="1173" y="304" fill="#7EE7F7" font-family="Inter, Arial, sans-serif" font-size="24">92 / 100</text>
+  <rect x="1137" y="548" width="186" height="112" rx="24" fill="#18232D" fill-opacity="0.95" stroke="#406877"/>
+  <text x="1173" y="607" fill="#ECF5FF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Shortlist</text>
+  <text x="1173" y="639" fill="#7EE7F7" font-family="Inter, Arial, sans-serif" font-size="24">Gemini loop</text>
+  <text x="230" y="102" fill="#E9EDF7" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="700">NextHire</text>
+  <text x="230" y="154" fill="#93A0B5" font-family="Inter, Arial, sans-serif" font-size="24">AI Resume Screening Platform</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1274 164) rotate(90) scale(200)">
+      <stop stop-color="#28C9D9"/>
+      <stop offset="1" stop-color="#28C9D9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(270 746) rotate(90) scale(220)">
+      <stop stop-color="#0E9F9B"/>
+      <stop offset="1" stop-color="#0E9F9B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="paint2_linear" x1="170" y1="132" x2="1430" y2="768" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171C26" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#11151D" stop-opacity="0.88"/>
+    </linearGradient>
+    <linearGradient id="paint3_linear" x1="170" y1="132" x2="1430" y2="768" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#456C79"/>
+      <stop offset="1" stop-color="#23303D"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Github, Instagram, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Rocket, Send, BookOpen } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
@@ -12,7 +12,8 @@ const socialLinks = [
   { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/rishav-dewan/', label: 'LinkedIn' },
   { icon: <Phone size={20} />, href: 'https://wa.me/919749452397?text=Hi%20Rishav%20%2C%20I%20just%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20something%20with%20you', label: 'WhatsApp' },
   { icon: <Github size={20} />, href: 'https://github.com/rish106-hub', label: 'GitHub' },
-  { icon: <Instagram size={20} />, href: 'https://www.instagram.com/rishav_dewan/', label: 'Instagram' },
+  { icon: <Rocket size={20} />, href: 'https://www.producthunt.com/@rishav_dewan', label: 'Product Hunt' },
+  { icon: <BookOpen size={20} />, href: 'https://medium.com/@rishavdewan10', label: 'Medium' },
 ];
 
 // Animation variants
@@ -136,7 +137,7 @@ const ContactSection = () => {
             <span className="heading-accent">Get In Touch</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-            Have a question or want to work together? Feel free to reach out!
+            If you are building in AI, fintech, education, or growth-heavy products, I am open to product, strategy, and operator conversations.
           </p>
         </motion.div>
 

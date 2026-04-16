@@ -1,65 +1,79 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, MapPin, ExternalLink } from 'lucide-react';
+import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
-// Experience data
 const experiences = [
   {
-    position: "Product and Growth Associate Intern",
-    company: "Enzo Lab | Product Design, UX/UI & Strategy Studio",
-    period: "Jul 2025 - current",
-    location: "Delhi NCR, Haryana , India",
-    description: "Worked closely with the founding team on strategic initiatives and project management. Contributed to academic planning and community engagement efforts.",
+    position: 'Product Intern',
+    company: 'Newton School (Incanus Technologies Pvt. Ltd.)',
+    period: 'Mar 2026 - May 2026',
+    location: 'Bangalore, Karnataka, India',
+    description:
+      'Worked on product strategy, learner research, and growth analytics for EdTech initiatives during a two-month internship that began on March 16, 2026.',
     achievements: [
-      "Conducting in-depth market research and competitive analysis to identify user needs, product gaps, and actionable insights.",
-      "Supporting growth strategy execution by tracking KPIs, improving engagement, and contributing to user acquisition campaigns.",
-      "Collaborating cross-functionally with product, design, and content teams to drive innovation and streamline go-to-market efforts.",
-    ]
+      'Contributed to product roadmap definition and sprint planning for EdTech features at Newton School.',
+      'Conducted user research and synthesized learner insights to identify onboarding drop-off points.',
+      'Tracked growth KPIs and ran experiments to improve learner retention and engagement metrics.',
+    ],
+  },
+  {
+    position: 'Product and Growth Associate Intern',
+    company: 'Enzo Lab | Product Design, UX/UI & Strategy Studio',
+    period: 'Jul 2025 - Oct 2025',
+    location: 'Delhi NCR, Haryana, India',
+    description:
+      'Working close to product and strategy leaders on research, growth inputs, and initiatives that sharpen my understanding of user needs and execution tradeoffs.',
+    achievements: [
+      'Drove homepage and funnel revamps across Scaler, ASU, Allen Digital, Wiom, Cintana Education, and Intellify, reducing conversion drop-offs and improving customer acquisition.',
+      'Built the Product × People podcast workflow from content research to guest mapping.',
+      "Scaled Enzo Lab's LinkedIn community by ~50% in 3 months.",
+    ],
   },
   {
     position: "Founder's Office Intern",
-    company: "Rishihood University",
-    period: "Feb 2025 - Jul 2025",
-    location: "Delhi NCR, Haryana , India",
-    description: "Worked closely with the founding team on strategic initiatives and project management. Contributed to academic planning and community engagement efforts.",
+    company: 'Rishihood University',
+    period: 'Feb 2025 - Jul 2025',
+    location: 'Delhi NCR, Haryana, India',
+    description:
+      'Worked on strategic initiatives with leadership teams, giving me hands-on exposure to problem discovery, cross-functional alignment, and high-context execution.',
     achievements: [
-      "Spearheaded the design and development of a next-generation communications curriculum for incoming learners, setting new benchmarks in education and hiring.",
-      "Drove measurable improvements in learner performance and employability through outcome-focused initiatives."
-    ]
+      'Led designing of a next-gen comms. curriculum for 700+ learners, aligning with industry standards.',
+      'Improved learner outcomes and employability through measurable, results-driven initiatives.',
+    ],
   },
   {
-    position: "Automation Intern",
-    company: "bnBeyond",
-    period: "Nov 2024 - Dec 2024",
-    location: "Remote, Dubai, UAE",
-    description: "Focused on developing automation solutions to improve business processes and workflow efficiency. Utilized Python and related technologies to build practical tools.",
+    position: 'Automation Intern',
+    company: 'bnBeyond',
+    period: 'Nov 2024 - Dec 2024',
+    location: 'Remote, Dubai, UAE',
+    description:
+      'Built automation-led solutions while learning how operational bottlenecks, cost structures, and acquisition problems connect back to product and business decisions.',
     achievements: [
-      "Optimized Fiscal Efficiency: Increased fiscal efficiency by 20% within 15 days through the implementation of structured frameworks.",
-      "Boosted Guest Acquisition: Raised the company's guest acquisition rate from 5% to 15% within 25 days through targeted strategies.",
-      "Reduced Acquisition Costs: Decreased customer acquisition costs by 5% through effective cost management and process optimization."
-    ]
-  }
+      'Increased fiscal efficiency by 20% within 15 days through structured frameworks.',
+      'Raised guest acquisition rate from 5% to 15% in 25 days through targeted strategies.',
+      'Reduced customer acquisition cost by 5% via effective cost management and process optimisation.',
+    ],
+  },
 ];
 
-// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
-    }
-  }
+      staggerChildren: 0.2,
+    },
+  },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-20 px-6 bg-secondary/30">
+    <section id="experience" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,10 +83,10 @@ const ExperienceSection = () => {
           className="text-center mb-16"
         >
           <h2 className="section-heading">
-            <span className="heading-accent">Professional Experience</span>
+            <span className="heading-accent">Work Experience</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-            My journey through various roles that have shaped my skills and perspective.
+            Each role has strengthened the same core muscle: translating ambiguity into product, growth, and execution outcomes.
           </p>
         </motion.div>
 
@@ -83,9 +97,9 @@ const ExperienceSection = () => {
           viewport={{ once: true }}
           className="space-y-12"
         >
-          {experiences.map((experience, index) => (
+          {experiences.map((experience) => (
             <motion.div
-              key={index}
+              key={`${experience.company}-${experience.position}`}
               variants={itemVariants}
               className="bg-white/40 backdrop-blur-sm rounded-xl p-8 border border-primary/5 shadow-sm"
             >
@@ -93,45 +107,33 @@ const ExperienceSection = () => {
                 <div className="md:w-2/5">
                   <h3 className="text-xl font-semibold mb-2">{experience.position}</h3>
                   <h4 className="text-lg font-medium text-primary">{experience.company}</h4>
-                  
+
                   <div className="flex items-center gap-2 mt-4 text-foreground/60">
                     <Calendar size={16} />
                     <span className="text-sm">{experience.period}</span>
                   </div>
-                  
+
                   <div className="flex items-center gap-2 mt-2 text-foreground/60">
                     <MapPin size={16} />
                     <span className="text-sm">{experience.location}</span>
                   </div>
                 </div>
-                
+
                 <div className="md:w-3/5">
                   <p className="text-foreground/80 mb-4">{experience.description}</p>
-                  
+
                   <h5 className="font-medium mb-2 flex items-center gap-2">
                     <Briefcase size={16} className="text-primary" />
-                    Key Achievements
+                    Key Contributions
                   </h5>
-                  
+
                   <ul className="space-y-2">
-                    {experience.achievements.map((achievement, achIndex) => {
-                      const [boldPart, ...rest] = achievement.split(':');
-                      return (
-                        <li key={achIndex} className="flex items-start">
-                          <span className="text-primary mr-2">•</span>
-                          <span>
-                            {rest.length > 0 ? (
-                              <>
-                                <strong>{boldPart}:</strong>
-                                {rest.join(':')}
-                              </>
-                            ) : (
-                              achievement
-                            )}
-                          </span>
-                        </li>
-                      );
-                    })}
+                    {experience.achievements.map((achievement) => (
+                      <li key={achievement} className="flex items-start">
+                        <span className="text-primary mr-2">•</span>
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
