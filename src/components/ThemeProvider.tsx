@@ -11,28 +11,14 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>(() => {
+    const savedTheme = localStorage.getItem('theme') as Theme | null;
+    if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
 
   useEffect(() => {
-    // Check for saved theme preference or system preference
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else if (prefersDark) {
-      setTheme('dark');
-    }
-  }, []);
-
-  useEffect(() => {
-    // Update the document class and localStorage when theme changes
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    
+    document.documentElement.classList.toggle('dark', theme === 'dark');
     localStorage.setItem('theme', theme);
   }, [theme]);
 

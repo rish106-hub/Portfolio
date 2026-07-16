@@ -1,113 +1,91 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowDown, ExternalLink } from 'lucide-react';
-
-const highlights = [
-  {
-    label: 'PM Lens',
-    value: 'Discovery to execution',
-  },
-  {
-    label: 'Focus',
-    value: 'AI-native product systems',
-  },
-  {
-    label: 'Leadership',
-    value: 'Arthakram',
-  },
-];
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowDown } from 'lucide-react';
+import { ExternalLinkButton, Tag } from './BrutalUI';
+import { resumeHref } from '@/data/portfolio';
 
 const HeroSection = () => {
-  const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+  const reduceMotion = useReducedMotion();
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center px-6 py-20">
-      <div className="max-w-7xl w-full mx-auto">
+    <section id="home" className="hero-section">
+      <div className="hero-stripe hero-stripe--blue" aria-hidden="true" />
+      <div className="hero-stripe hero-stripe--yellow" aria-hidden="true" />
+      <div className="page-shell hero-grid">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto"
+          className="hero-copy"
+          initial={reduceMotion ? false : { opacity: 0, x: -24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-background/80 px-4 py-2 text-sm font-medium text-foreground/70 shadow-sm"
-          >
-            <span className="h-2 w-2 rounded-full bg-emerald-500" />
-            Product Management • Growth • Strategy
-          </motion.div>
+          <Tag accent="mint">Available for ambitious teams</Tag>
+          <p className="hero-kicker">Product judgment. Technical direction. Real execution.</p>
+          <h1>
+            AI PRODUCT
+            <span>BUILDER</span>
+          </h1>
+          <p className="hero-summary">
+            I turn ambiguous problems into usable AI systems and products, from recruiter workflows and
+            voice assessment to fintech and developer tools.
+          </p>
+          <div className="hero-actions">
+            <ExternalLinkButton variant="primary" href="#work">
+              See the work
+            </ExternalLinkButton>
+            <ExternalLinkButton variant="secondary" href={resumeHref} download="Rishav_Dewan_Resume.pdf">
+              Download resume
+            </ExternalLinkButton>
+          </div>
+          <div className="hero-proof" aria-label="Portfolio highlights">
+            <div>
+              <strong>2,000+</strong>
+              <span>resumes validated</span>
+            </div>
+            <div>
+              <strong>17</strong>
+              <span>merged open-source PRs</span>
+            </div>
+            <div>
+              <strong>850+</strong>
+              <span>learners reached</span>
+            </div>
+          </div>
+        </motion.div>
 
-          <h1 className="hero-text mt-8 mb-6 leading-tight max-w-4xl">Product, Growth, Execution</h1>
-
-          <motion.p
-            className="text-lg md:text-xl text-foreground/80 mb-12 max-w-3xl leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.35, duration: 0.8 }}
-          >
-            I work on startup-focused products across AI, fintech, hiring, and growth systems,
-            with hands-on experience in research, strategy, funnels, and shipping.
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col md:flex-row items-start md:items-center gap-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
-            <button
-              type="button"
-              onClick={scrollToProjects}
-              className="px-8 py-3 bg-primary text-primary-foreground rounded-lg transition-all hover:shadow-lg hover:-translate-y-1 duration-300"
-            >
-              View Product Work
-            </button>
-            <a
-              href="https://www.producthunt.com/@rishav_dewan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-transparent border border-primary/20 rounded-lg transition-all hover:border-primary/40 hover:shadow-lg hover:-translate-y-1 duration-300 inline-flex items-center gap-2"
-            >
-              Product Hunt Profile
-              <ExternalLink size={16} />
-            </a>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4"
-          >
-            {highlights.map((item) => (
-              <div
-                key={item.label}
-                className="rounded-2xl border border-primary/10 bg-background/70 backdrop-blur-sm p-5 shadow-sm"
-              >
-                <p className="text-sm uppercase tracking-[0.2em] text-foreground/50">{item.label}</p>
-                <p className="mt-3 text-lg font-semibold text-foreground">{item.value}</p>
-              </div>
-            ))}
-          </motion.div>
+        <motion.div
+          className="workbench"
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.95, rotate: 2 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 0.55, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          aria-label="Rishav Dewan, AI product builder"
+        >
+          <div className="workbench-note workbench-note--build">BUILD</div>
+          <div className="workbench-note workbench-note--product">PRODUCT</div>
+          <div className="workbench-note workbench-note--operate">OPERATE</div>
+          <div className="portrait-frame">
+            <div className="portrait-backdrop" aria-hidden="true" />
+            <img
+              src="https://avatars.githubusercontent.com/u/181550078?v=4"
+              alt="Rishav Dewan"
+              width="520"
+              height="620"
+              loading="eager"
+            />
+          </div>
+          <div className="workbench-badge workbench-badge--status">
+            <span aria-hidden="true">●</span> Open to opportunities
+          </div>
+          <div className="workbench-badge workbench-badge--location">📍 Delhi NCR</div>
+          <div className="workbench-code" aria-hidden="true">
+            <span>IF</span> problem_is_messy
+            <br />
+            <span>THEN</span> make_it_testable
+          </div>
         </motion.div>
       </div>
 
-      <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-foreground/60 cursor-pointer"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-      >
-        <a href="#about">
-          <ArrowDown size={24} />
-        </a>
-      </motion.div>
-
-      <div className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+      <a className="hero-scroll" href="#profile" aria-label="Continue to profile">
+        <ArrowDown size={24} aria-hidden="true" />
+      </a>
     </section>
   );
 };

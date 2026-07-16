@@ -1,115 +1,87 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Award, ExternalLink } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { BrutalCard, ExternalLinkButton, Reveal, SectionLabel, Tag } from './BrutalUI';
+import { credentials } from '@/data/portfolio';
 
-// Certification data
-const certifications = [
-  {
-    title: 'IBM AI Product Management Course',
-    issuer: 'IBM via Coursera',
-    date: 'June 2025',
-    link: 'https://coursera.org/share/a0e450c04e54fa286c50fb97767aa434',
-    image: '/IBM_AI_PM.jpeg'
-  },
-  {
-    title: 'Google Digital Marketing and E-Commerce Professional Certificate',
-    issuer: 'Google',
-    date: 'Dec 2024',
-    link: 'https://www.credly.com/badges/a37ea25d-b4a6-4ac7-9087-2bd508f77037/linked_in_profile',
-    image: '/Google_prof_DM.jpeg'
-  },
-  {
-    title: 'Financial Markets',
-    issuer: 'Yale University',
-    date: 'January 2025',
-    link: 'https://coursera.org/share/bb66c84a68010a39fae9fba32304bfec',
-    image: '/Yale_FM.jpeg'
-  },
-  {
-    title: 'Python for Data Science and AI ',
-    issuer: 'IBM',
-    date: 'November 2024',
-    link: 'https://www.credly.com/badges/8c5ca7d7-6f65-4858-b739-9ff3e0a80d77/linked_in_profile',
-    image: '/IBM.jpeg'
-  }
-];
+const CertificationsSection = () => (
+  <section id="credentials" className="section section--credentials">
+    <div className="page-shell">
+      <SectionLabel
+        eyebrow="Evidence beyond the case study"
+        title="PROOF_&_RECOGNITION"
+        description="Open-source work, structured learning, competition wins, and a student community built around practical product thinking."
+      />
 
-// Animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
-
-const CertificationsSection = () => {
-  return (
-    <section className="py-16 px-6">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <h2 className="section-heading">
-            <span className="heading-accent">Certifications</span>
-          </h2>
-          <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-            Professional qualifications and continued learning achievements.
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {certifications.map((cert, index) => (
-            <motion.a
-              key={index}
-              href={cert.link}
+      <div className="credentials-layout">
+        <Reveal>
+          <BrutalCard accent="orange" className="leadership-card">
+            <p className="card-kicker">Former President | December 2025 - July 2026</p>
+            <h3>Led Arthakram</h3>
+            <p>
+              I led a 50+ member product and consulting club through client mandates, product work, case
+              competitions, and operator-led learning. The point was practical output, not another campus title.
+            </p>
+            <ul className="leadership-work">
+              <li>Worked on an 18% profit-margin supply-chain mandate for the Government of Lakshadweep.</li>
+              <li>Contributed to Apollo MedSkills work that produced a 7% traffic uplift and 13% conversion improvement.</li>
+              <li>Worked with Electron Labs on product thinking for Aadi.</li>
+            </ul>
+            <div className="leadership-stats">
+              <div>
+                <strong>50+</strong>
+                <span>members</span>
+              </div>
+              <div>
+                <strong>10+</strong>
+                <span>mandates</span>
+              </div>
+              <div>
+                <strong>15+</strong>
+                <span>wins</span>
+              </div>
+            </div>
+            <ExternalLinkButton
+              href="https://www.linkedin.com/company/arthakram/"
               target="_blank"
-              rel="noopener noreferrer"
-              variants={itemVariants}
-              className="group bg-white/40 rounded-xl overflow-hidden border border-primary/5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+              rel="noreferrer"
+              variant="dark"
+              showIcon
             >
-              <div className="h-48 bg-secondary relative flex items-center justify-center p-4 overflow-hidden">
-                <img 
-                  src={cert.image} 
-                  alt={cert.title}
-                  className="w-full h-full object-cover rounded-t-xl"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-primary/5 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <ExternalLink size={24} className="text-primary" />
-                </div>
+              View Arthakram
+            </ExternalLinkButton>
+          </BrutalCard>
+        </Reveal>
+
+        <div className="credential-grid">
+          {credentials.map((credential) => {
+            const content = (
+              <>
+                <Tag accent={credential.accent}>Verified proof</Tag>
+                <h3>{credential.label}</h3>
+                <p>{credential.detail}</p>
+                {credential.href ? <ArrowUpRight size={22} aria-hidden="true" /> : null}
+              </>
+            );
+
+            return credential.href ? (
+              <a
+                key={credential.label}
+                href={credential.href}
+                target="_blank"
+                rel="noreferrer"
+                className={`credential-card accent-${credential.accent}`}
+              >
+                {content}
+              </a>
+            ) : (
+              <div key={credential.label} className={`credential-card accent-${credential.accent}`}>
+                {content}
               </div>
-              
-              <div className="p-4">
-                <h3 className="font-medium text-base mb-1 line-clamp-2">{cert.title}</h3>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-primary">{cert.issuer}</span>
-                  <span className="text-foreground/60">{cert.date}</span>
-                </div>
-              </div>
-            </motion.a>
-          ))}
-        </motion.div>
+            );
+          })}
+        </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default CertificationsSection;
