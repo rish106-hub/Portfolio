@@ -260,9 +260,9 @@ export const experiences: Experience[] = [
     ],
     stack: ['Guesty', 'Zapier', 'Meta Ads', 'Process automation'],
     accent: 'orange',
-    logo: '/company-logos/bnbeyond.svg',
-    logoAlt: 'bnBeyond monogram',
-    logoMode: 'symbol',
+    logo: '/company-logos/bnbeyond.png',
+    logoAlt: 'bnBeyond hospitality redefined logo',
+    logoMode: 'wordmark',
   },
 ];
 
