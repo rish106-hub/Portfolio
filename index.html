@@ -22,13 +22,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script>
-      // On page load, check local storage or system preference
       (function() {
-        let theme = localStorage.getItem('theme');
-        if (!theme) {
-          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
-        document.documentElement.classList.toggle('dark', theme === 'dark');
+        document.documentElement.classList.remove('dark');
       })();
     </script>
     <script type="application/ld+json">
