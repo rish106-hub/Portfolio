@@ -342,6 +342,10 @@ img {
   letter-spacing: -0.075em;
 }
 
+.hero-copy {
+  min-width: 0;
+}
+
 .hero-copy h1 span {
   display: block;
   color: var(--orange);
@@ -443,13 +447,17 @@ img {
   text-transform: uppercase;
 }
 
-.hero-proof-note {
-  max-width: 620px;
-  margin: 10px 0 0;
-  color: var(--muted);
+.hero-impact-region {
+  display: inline-block;
+  margin: 14px 0 0;
+  padding: 7px 10px;
+  border: 2px solid var(--line);
+  background: var(--yellow);
+  color: #111111;
+  box-shadow: 3px 3px 0 var(--line);
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.68rem;
-  line-height: 1.45;
+  font-size: 0.7rem;
+  text-transform: uppercase;
 }
 
 .workbench {
@@ -590,6 +598,69 @@ img {
   animation: scroll-bounce 2s ease-in-out infinite;
 }
 
+.resume-dialog-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.resume-dialog-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: color-mix(in srgb, #111111 68%, transparent);
+  cursor: default;
+}
+
+.resume-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 560px);
+  padding: clamp(28px, 5vw, 46px);
+  border: 4px solid var(--line);
+  background: var(--yellow);
+  box-shadow: 10px 10px 0 var(--line);
+  color: #111111;
+}
+
+.resume-dialog h2 {
+  max-width: 12ch;
+  margin: 14px 0;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.9rem);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+}
+
+.resume-dialog > p:not(.card-kicker) {
+  max-width: 38ch;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.resume-dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 3px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.resume-options {
+  display: grid;
+  gap: 12px;
+  margin-top: 26px;
+}
+
 .brutal-card {
   position: relative;
   border: var(--border);
@@ -695,6 +766,25 @@ img {
   color: #111111;
   box-shadow: 4px 4px 0 var(--line);
   font-size: 1.8rem;
+}
+
+.profile-mark {
+  display: grid;
+  width: 66px;
+  height: 66px;
+  margin-bottom: 24px;
+  place-items: center;
+  border: 3px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 4px 4px 0 var(--line);
+  overflow: hidden;
+}
+
+.profile-mark img {
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
 }
 
 .profile-card h3,
@@ -828,8 +918,9 @@ img {
   grid-column: 1;
   align-self: end;
   font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(2rem, 4vw, 3.4rem);
-  line-height: 0.9;
+  font-size: clamp(1.35rem, 2.5vw, 2.35rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
 }
 
 .impact-org > small {
@@ -838,6 +929,111 @@ img {
   font-size: 0.68rem;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+.impact-org__metric {
+  grid-column: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.impact-org__metric b {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.impact-org__metric span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.impact-org--story {
+  min-height: 280px;
+  grid-template-rows: auto auto auto 1fr;
+  align-content: start;
+}
+
+.impact-org__brand {
+  grid-column: 1 / -1;
+  display: flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 10px;
+  padding-right: 28px;
+}
+
+.impact-org__brand span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.impact-org__brand img {
+  width: 92px;
+  height: 42px;
+  margin-left: auto;
+  padding: 5px;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  box-shadow: 2px 2px 0 var(--line);
+  object-fit: contain;
+  object-position: center;
+}
+
+.impact-org--story .impact-org__metric {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: end;
+  margin: 18px 0 12px;
+}
+
+.impact-org--story .impact-org__metric b {
+  font-size: clamp(2.3rem, 4vw, 3.7rem);
+  letter-spacing: -0.055em;
+}
+
+.impact-org--story .impact-org__metric span {
+  max-width: 17ch;
+  padding-bottom: 4px;
+  line-height: 1.25;
+}
+
+.impact-org--story h3,
+.impact-org--story p {
+  grid-column: 1 / -1;
+}
+
+.impact-org--story h3 {
+  margin: 0 0 10px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.08;
+}
+
+.impact-org--story p {
+  margin: 0;
+  align-self: end;
+  font-size: 0.88rem;
+  line-height: 1.48;
+}
+
+.impact-org--story > svg {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+}
+
+article.impact-org--story:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 .impact-org > svg {
@@ -861,15 +1057,6 @@ img {
   background: color-mix(in srgb, var(--mint) 45%, var(--surface));
 }
 
-.impact-method {
-  max-width: 1080px;
-  margin: 24px 0 0;
-  color: var(--muted);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.7rem;
-  line-height: 1.6;
-}
-
 .section--work {
   background:
     linear-gradient(90deg, transparent 0 96%, color-mix(in srgb, var(--blue) 28%, transparent) 96%),
@@ -883,8 +1070,27 @@ img {
 }
 
 .proof-card {
+  position: relative;
   min-height: 440px;
   padding: 34px;
+}
+
+.proof-invitation {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  max-width: 190px;
+  padding: 7px 9px;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  box-shadow: 3px 3px 0 var(--line);
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.59rem;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .proof-card h3 {
@@ -1067,6 +1273,66 @@ img {
   font-weight: 700;
 }
 
+.experience-feature-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.experience-feature-link {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 3px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 5px 5px 0 var(--line);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.experience-feature-link:hover,
+.experience-feature-link:focus-visible {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--line);
+}
+
+.experience-feature-link--youtube {
+  background: #ff2f2f;
+  color: #111111;
+}
+
+.experience-feature-link--product > span:first-child {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 2px solid var(--line);
+  background: var(--blue);
+  color: #111111;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+.experience-feature-link small,
+.experience-feature-link strong {
+  display: block;
+}
+
+.experience-feature-link small {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.experience-feature-link strong {
+  margin-top: 2px;
+  font-family: 'Archivo Black', sans-serif;
+}
+
 .section--projects {
   border-top: var(--border);
   background: var(--surface);
@@ -1118,6 +1384,7 @@ img {
   font-weight: 700;
   text-transform: uppercase;
 }
+
 
 .project-copy {
   padding: 30px;
@@ -1198,7 +1465,18 @@ img {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   gap: 34px;
-  align-items: start;
+  align-items: stretch;
+}
+
+.credentials-layout > div:first-child,
+.credentials-layout > div:first-child > .leadership-card {
+  height: 100%;
+}
+
+.credentials-proof-column {
+  display: grid;
+  gap: 24px;
+  align-content: start;
 }
 
 .leadership-card {
@@ -1209,6 +1487,24 @@ img {
 
 .leadership-card h3 {
   font-size: 2.35rem;
+}
+
+.leadership-logo {
+  display: grid;
+  width: 116px;
+  height: 116px;
+  margin-bottom: 24px;
+  place-items: center;
+  overflow: hidden;
+  border: 3px solid #111111;
+  background: #ffffff;
+  box-shadow: 5px 5px 0 #111111;
+}
+
+.leadership-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .leadership-card > p:not(.card-kicker) {
@@ -1267,6 +1563,65 @@ img {
   text-transform: uppercase;
 }
 
+.partner-logos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.partner-proof-card {
+  padding: 30px;
+  border: 3px solid var(--line);
+  background: var(--yellow);
+  color: #111111;
+  box-shadow: 7px 7px 0 var(--line);
+}
+
+.partner-proof-card h3 {
+  margin: 10px 0;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.65rem;
+}
+
+.partner-proof-card > p:not(.card-kicker) {
+  max-width: 58ch;
+  margin: 0;
+}
+
+.partner-logos a,
+.partner-logo-tile {
+  display: grid;
+  min-height: 130px;
+  grid-template-rows: 76px auto;
+  gap: 8px;
+  place-items: center;
+  padding: 12px;
+  border: 2px solid #111111;
+  background: #ffffff;
+  color: #111111;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 #111111;
+}
+
+.partner-logos img {
+  width: 100%;
+  height: 76px;
+  object-fit: contain;
+}
+
+.partner-logos img[src$='apollo-medskills.png'] {
+  transform: scale(1.22);
+}
+
+.partner-logos span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .credential-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1283,6 +1638,20 @@ img {
   text-decoration: none;
   box-shadow: 5px 5px 0 var(--line);
   transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.credential-logo {
+  display: block;
+  width: auto;
+  max-width: 118px;
+  height: 46px;
+  margin-bottom: 18px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.credential-card .credential-logo + .brutal-tag + h3 {
+  margin-top: 18px;
 }
 
 a.credential-card:hover {
@@ -1556,6 +1925,11 @@ a.credential-card:hover {
   .contact-layout {
     grid-template-columns: 1fr;
   }
+
+  .credentials-layout > div:first-child,
+  .credentials-layout > div:first-child > .leadership-card {
+    height: auto;
+  }
 }
 
 @media (max-width: 880px) {
@@ -1686,7 +2060,8 @@ a.credential-card:hover {
   }
 
   .hero-copy h1 {
-    font-size: clamp(3.3rem, 16vw, 5rem);
+    font-size: clamp(2.9rem, 13.2vw, 4rem);
+    letter-spacing: -0.065em;
   }
 
   .hero-copy h1 span {
@@ -1775,6 +2150,7 @@ a.credential-card:hover {
   .proof-card,
   .project-copy,
   .leadership-card,
+  .partner-proof-card,
   .contact-form {
     padding: 26px;
   }
@@ -1826,6 +2202,11 @@ a.credential-card:hover {
 
   .project-actions .brutal-button {
     flex-basis: 100%;
+  }
+
+  .experience-feature-links,
+  .partner-logos {
+    grid-template-columns: 1fr;
   }
 
   .mini-project {

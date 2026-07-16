@@ -1,4 +1,4 @@
-import { MapPin } from 'lucide-react';
+import { ArrowUpRight, MapPin, Youtube } from 'lucide-react';
 import { BrutalCard, Reveal, SectionLabel, Tag } from './BrutalUI';
 import { experiences } from '@/data/portfolio';
 
@@ -57,6 +57,26 @@ const ExperienceSection = () => (
                   </Tag>
                 ))}
               </div>
+              {experience.featureLinks?.length ? (
+                <div className="experience-feature-links">
+                  {experience.featureLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      className={`experience-feature-link experience-feature-link--${link.kind}`}
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {link.kind === 'youtube' ? <Youtube size={28} aria-hidden="true" /> : <span aria-hidden="true">K</span>}
+                      <span>
+                        <small>{link.eyebrow}</small>
+                        <strong>{link.label}</strong>
+                      </span>
+                      <ArrowUpRight size={22} aria-hidden="true" />
+                    </a>
+                  ))}
+                </div>
+              ) : null}
             </BrutalCard>
           </Reveal>
         ))}
