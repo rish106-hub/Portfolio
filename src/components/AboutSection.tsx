@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 import { BrutalCard, ExternalLinkButton, Reveal, SectionLabel, Tag } from './BrutalUI';
-import { impactOrganizations, profileCards, proofPoints, skillGroups } from '@/data/portfolio';
+import { ownershipStories, profileCards, proofPoints, skillGroups } from '@/data/portfolio';
 
 const AboutSection = () => (
   <>
@@ -14,9 +14,15 @@ const AboutSection = () => (
         <Reveal className="profile-grid">
           {profileCards.map((card) => (
             <BrutalCard key={card.title} accent={card.accent} className="profile-card">
-              <span className="card-icon" aria-hidden="true">
-                {card.icon}
-              </span>
+              {card.logo ? (
+                <div className="profile-mark">
+                  <img src={card.logo} alt={card.logoAlt ?? ''} loading="lazy" />
+                </div>
+              ) : (
+                <span className="card-icon" aria-hidden="true">
+                  {card.icon}
+                </span>
+              )}
               <p className="card-kicker">{card.title}</p>
               <h3>{card.headline}</h3>
               <ul>
@@ -30,41 +36,54 @@ const AboutSection = () => (
       </div>
     </section>
 
-    <section className="impact-section" aria-labelledby="impact-footprint-title">
+    <section className="impact-section" aria-labelledby="ownership-ledger-title">
       <div className="page-shell">
         <Reveal className="impact-ledger">
           <div className="impact-total">
-            <p className="card-kicker">Published organizational footprint</p>
-            <strong>5M+</strong>
-            <h2 id="impact-footprint-title">people across education and public ecosystems</h2>
+            <p className="card-kicker">Built. Changed. Measured.</p>
+            <strong>6</strong>
+            <h2 id="ownership-ledger-title">outcomes where I owned the work</h2>
             <p>
-              I contributed to products, workflows, or mandates inside these organizations. This is a conservative
-              aggregate of their published scale, not a direct-user claim.
+              Six systems and mandates where I shaped the product, operating model, or measurable result.
             </p>
           </div>
           <div className="impact-org-grid">
-            {impactOrganizations.map((organization) => (
-              <a
-                key={organization.name}
-                className={`impact-org accent-${organization.accent}`}
-                href={organization.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`${organization.name}: ${organization.figure} ${organization.measure}. View official source`}
-              >
-                <span>{organization.name}</span>
-                <strong>{organization.figure}</strong>
-                <small>{organization.measure}</small>
-                <ArrowUpRight size={17} aria-hidden="true" />
-              </a>
-            ))}
+            {ownershipStories.map((story) => {
+              const content = (
+                <>
+                  <div className="impact-org__brand">
+                    <span>{story.eyebrow}</span>
+                    <img src={story.logo} alt={story.logoAlt} loading="lazy" />
+                  </div>
+                  <div className="impact-org__metric">
+                    <b>{story.metric}</b>
+                    <span>{story.metricLabel}</span>
+                  </div>
+                  <h3>{story.title}</h3>
+                  <p>{story.description}</p>
+                  {story.href ? <ArrowUpRight size={19} aria-hidden="true" /> : null}
+                </>
+              );
+
+              return story.href ? (
+                <a
+                  key={story.title}
+                  className={`impact-org impact-org--story accent-${story.accent}`}
+                  href={story.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${story.title}: ${story.metric} ${story.metricLabel}`}
+                >
+                  {content}
+                </a>
+              ) : (
+                <article key={story.title} className={`impact-org impact-org--story accent-${story.accent}`}>
+                  {content}
+                </article>
+              );
+            })}
           </div>
         </Reveal>
-        <p className="impact-method">
-          Estimate basis: 800K+ Scaler registered users, 4M+ ALLEN students mentored, 194K+ ASU annual enrollment,
-          15K+ Newton learners, and 64K+ Lakshadweep residents. Veeam's 550K+ customer organizations are shown
-          separately and are not included in the 5M+ people estimate.
-        </p>
       </div>
     </section>
 
@@ -79,6 +98,7 @@ const AboutSection = () => (
           {proofPoints.map((proof) => (
             <Reveal key={proof.title}>
               <BrutalCard accent={proof.accent} className="proof-card">
+                {proof.invitation ? <span className="proof-invitation">{proof.invitation}</span> : null}
                 <span className="proof-icon" aria-hidden="true">
                   {proof.icon}
                 </span>
@@ -92,17 +112,18 @@ const AboutSection = () => (
                     </Tag>
                   ))}
                 </div>
-                {proof.href ? (
+                {proof.links?.map((link) => (
                   <ExternalLinkButton
+                    key={link.href}
                     className="proof-source"
-                    href={proof.href}
+                    href={link.href}
                     target="_blank"
                     rel="noreferrer"
                     showIcon
                   >
-                    View source
+                    {link.label}
                   </ExternalLinkButton>
-                ) : null}
+                ))}
               </BrutalCard>
             </Reveal>
           ))}

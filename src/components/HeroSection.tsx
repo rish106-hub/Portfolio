@@ -1,10 +1,20 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { ExternalLinkButton, Tag } from './BrutalUI';
-import { resumeHref } from '@/data/portfolio';
+import { resumeOptions } from '@/data/portfolio';
 
 const HeroSection = () => {
   const reduceMotion = useReducedMotion();
+  const [isResumeChooserOpen, setIsResumeChooserOpen] = useState(false);
+
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsResumeChooserOpen(false);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, []);
 
   return (
     <section id="home" className="hero-section">
@@ -31,25 +41,33 @@ const HeroSection = () => {
             <ExternalLinkButton variant="primary" href="#work">
               See the work
             </ExternalLinkButton>
-            <ExternalLinkButton variant="secondary" href={resumeHref} download="Rishav_Dewan_Resume.pdf">
+            <button
+              className="brutal-button brutal-button--secondary"
+              type="button"
+              onClick={() => setIsResumeChooserOpen(true)}
+              aria-haspopup="dialog"
+              aria-expanded={isResumeChooserOpen}
+            >
               Download resume
-            </ExternalLinkButton>
+            </button>
           </div>
-          <div className="hero-proof" aria-label="Portfolio highlights">
+          <div className="hero-proof" aria-label="People reached through Rishav's work">
             <div>
               <strong>5M+</strong>
-              <span>people-scale org footprint</span>
+              <span>learner reach</span>
             </div>
             <div>
-              <strong>550K+</strong>
-              <span>Veeam customer organizations</span>
+              <strong>2,000+</strong>
+              <span>candidates screened through Mieru</span>
             </div>
             <div>
-              <strong>17</strong>
-              <span>merged open-source PRs</span>
+              <strong>850+</strong>
+              <span>learners served through voice assessment</span>
             </div>
           </div>
-          <p className="hero-proof-note">Organization-wide scale, not a claim that every person used my work.</p>
+          <p className="hero-impact-region">
+            Work shipped across <strong>India</strong>, <strong>USA</strong>, <strong>France</strong>, and <strong>UAE</strong>.
+          </p>
         </motion.div>
 
         <motion.div
@@ -87,6 +105,45 @@ const HeroSection = () => {
       <a className="hero-scroll" href="#profile" aria-label="Continue to profile">
         <ArrowDown size={24} aria-hidden="true" />
       </a>
+
+      {isResumeChooserOpen ? (
+        <div className="resume-dialog-layer" role="presentation">
+          <button
+            className="resume-dialog-backdrop"
+            type="button"
+            aria-label="Close resume choices"
+            onClick={() => setIsResumeChooserOpen(false)}
+          />
+          <motion.div
+            className="resume-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="resume-dialog-title"
+            initial={reduceMotion ? false : { opacity: 0, y: 12, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.2 }}
+          >
+            <button
+              className="resume-dialog-close"
+              type="button"
+              onClick={() => setIsResumeChooserOpen(false)}
+              aria-label="Close resume choices"
+            >
+              <X size={20} aria-hidden="true" />
+            </button>
+            <p className="card-kicker">Choose your resume</p>
+            <h2 id="resume-dialog-title">WHICH VERSION FITS?</h2>
+            <p>Download the resume that matches the role you are considering.</p>
+            <div className="resume-options">
+              {resumeOptions.map((resume) => (
+                <a key={resume.label} className="brutal-button brutal-button--primary" href={resume.href} target="_blank" rel="noreferrer">
+                  {resume.label}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      ) : null}
     </section>
   );
 };

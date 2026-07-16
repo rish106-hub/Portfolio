@@ -44,6 +44,11 @@ const ProjectsSection = () => (
                       Open project
                     </ExternalLinkButton>
                   ) : null}
+                  {project.release ? (
+                    <ExternalLinkButton href={project.release} target="_blank" rel="noreferrer" showIcon>
+                      Download release
+                    </ExternalLinkButton>
+                  ) : null}
                 </div>
               </div>
             </BrutalCard>
