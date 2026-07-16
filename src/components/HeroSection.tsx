@@ -65,10 +65,10 @@ const HeroSection = () => {
           <div className="portrait-frame">
             <div className="portrait-backdrop" aria-hidden="true" />
             <img
-              src="https://avatars.githubusercontent.com/u/181550078?v=4"
-              alt="Rishav Dewan"
-              width="520"
-              height="620"
+              src="/rishav-portrait.jpeg"
+              alt="Rishav Dewan standing outdoors"
+              width="906"
+              height="1266"
               loading="eager"
             />
           </div>
