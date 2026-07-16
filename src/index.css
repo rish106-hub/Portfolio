@@ -898,6 +898,10 @@ img {
   font-size: 1.05rem;
 }
 
+.proof-source {
+  margin-top: 26px;
+}
+
 .section--stack {
   border-top: var(--border);
   border-bottom: var(--border);

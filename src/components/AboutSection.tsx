@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
-import { BrutalCard, Reveal, SectionLabel, Tag } from './BrutalUI';
+import { BrutalCard, ExternalLinkButton, Reveal, SectionLabel, Tag } from './BrutalUI';
 import { impactOrganizations, profileCards, proofPoints, skillGroups } from '@/data/portfolio';
 
 const AboutSection = () => (
@@ -92,6 +92,17 @@ const AboutSection = () => (
                     </Tag>
                   ))}
                 </div>
+                {proof.href ? (
+                  <ExternalLinkButton
+                    className="proof-source"
+                    href={proof.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    showIcon
+                  >
+                    View source
+                  </ExternalLinkButton>
+                ) : null}
               </BrutalCard>
             </Reveal>
           ))}

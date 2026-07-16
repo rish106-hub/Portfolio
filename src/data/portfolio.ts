@@ -6,6 +6,7 @@ export interface ProofPoint {
   context: string;
   description: string;
   tags: string[];
+  href?: string;
   accent: Accent;
 }
 
@@ -146,12 +147,13 @@ export const proofPoints: ProofPoint[] = [
     accent: 'blue',
   },
   {
-    icon: '🎙️',
-    title: 'Voice assessment at campus scale',
-    context: 'Rishi Bolo | Rishihood University',
+    icon: '🗓️',
+    title: 'Know the debit before it hits',
+    context: 'DebitMap | Personal finance intelligence',
     description:
-      'Built the assessment and placement logic for 850+ learners, including retakes, faculty review, and manual path overrides. The system earned 4.8/5 feedback from 500+ learners.',
-    tags: ['ElevenLabs', 'Rules engine', '850+ learners'],
+      'Built an explainable 30-day recurring-debit forecast from Indian bank and payment messages. On held-out FinEE test data, its lightweight classifier reached 92.16% category accuracy while keeping normalized financial data on-device.',
+    tags: ['Kotlin', 'FastAPI', 'Privacy by design'],
+    href: 'https://github.com/rish106-hub/debitmap',
     accent: 'yellow',
   },
   {
@@ -181,7 +183,7 @@ export const experiences: Experience[] = [
     period: 'May 2026 - July 2026',
     location: 'Remote',
     summary:
-      'Completed a three-month Scale AI contract focused on making LLM behavior more reliable and measurable.',
+      'Working with Scale AI on a three-month AI evaluation contract running from May through July 2026, focused on making LLM behavior more reliable and measurable.',
     achievements: [
       'Worked across prompt experimentation, evaluation workflows, and model-quality analysis.',
       'Protected project details and customer information under NDA.',
@@ -234,7 +236,7 @@ export const experiences: Experience[] = [
     period: 'February 2025 - July 2025',
     location: 'Sonipat, India',
     summary:
-      'Built Rishi Bolo, a voice assessment and learning-path system for a large learner cohort.',
+      'Built a voice assessment and personalized learning-path workflow for a large learner cohort.',
     achievements: [
       'Designed the passage assessment, four-tier placement logic, and personalized progression paths.',
       'Added retakes, faculty review, and authorized manual overrides for edge cases.',
