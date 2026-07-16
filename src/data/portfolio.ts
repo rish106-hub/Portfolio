@@ -20,6 +20,7 @@ export interface Experience {
   accent: Accent;
   logo: string;
   logoAlt: string;
+  logoMode: 'symbol' | 'wordmark';
 }
 
 export interface Project {
@@ -134,8 +135,9 @@ export const experiences: Experience[] = [
     ],
     stack: ['LLM evaluation', 'Prompt experimentation', 'Quality analysis'],
     accent: 'orange',
-    logo: 'https://www.google.com/s2/favicons?domain=scale.com&sz=128',
+    logo: '/company-logos/scale-ai.svg',
     logoAlt: 'Scale AI logo',
+    logoMode: 'wordmark',
   },
   {
     role: 'Product Intern',
@@ -151,8 +153,9 @@ export const experiences: Experience[] = [
     ],
     stack: ['FastAPI', 'PostgreSQL', 'Gemini 2.5 Flash', 'Koyo'],
     accent: 'blue',
-    logo: 'https://www.google.com/s2/favicons?domain=newtonschool.co&sz=128',
+    logo: '/company-logos/newton-school.svg',
     logoAlt: 'Newton School logo',
+    logoMode: 'wordmark',
   },
   {
     role: 'Product & Growth Associate Intern',
@@ -168,8 +171,9 @@ export const experiences: Experience[] = [
     ],
     stack: ['User journeys', 'Funnel analysis', 'GTM', 'Content systems'],
     accent: 'mint',
-    logo: 'https://www.google.com/s2/favicons?domain=enzolab.in&sz=128',
+    logo: '/company-logos/enzo-lab.png',
     logoAlt: 'Enzo Lab logo',
+    logoMode: 'wordmark',
   },
   {
     role: "Founder’s Office Intern",
@@ -185,8 +189,9 @@ export const experiences: Experience[] = [
     ],
     stack: ['ElevenLabs', 'Learning design', 'Workflow design'],
     accent: 'yellow',
-    logo: 'https://www.google.com/s2/favicons?domain=rishihood.edu.in&sz=128',
+    logo: '/company-logos/rishihood-university.png',
     logoAlt: 'Rishihood University logo',
+    logoMode: 'wordmark',
   },
   {
     role: 'Process Automation Intern',
@@ -202,8 +207,9 @@ export const experiences: Experience[] = [
     ],
     stack: ['Guesty', 'Zapier', 'Meta Ads', 'Process automation'],
     accent: 'orange',
-    logo: '/bnbeyond-mark.svg',
+    logo: '/company-logos/bnbeyond.svg',
     logoAlt: 'bnBeyond monogram',
+    logoMode: 'symbol',
   },
 ];
 

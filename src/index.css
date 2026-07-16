@@ -834,7 +834,6 @@ img {
 
 .company-logo {
   display: grid;
-  width: 72px;
   height: 72px;
   flex: 0 0 auto;
   place-items: center;
@@ -842,6 +841,15 @@ img {
   border: 3px solid var(--line);
   background: #ffffff;
   box-shadow: 4px 4px 0 var(--line);
+}
+
+.company-logo--symbol {
+  width: 72px;
+}
+
+.company-logo--wordmark {
+  width: 142px;
+  padding: 12px 14px;
 }
 
 .company-logo img {
@@ -1615,9 +1623,17 @@ a.credential-card:hover {
   }
 
   .company-logo {
-    width: 58px;
     height: 58px;
     padding: 8px;
+  }
+
+  .company-logo--symbol {
+    width: 58px;
+  }
+
+  .company-logo--wordmark {
+    width: 116px;
+    padding: 9px 10px;
   }
 
   .experience-heading h3 {
