@@ -1,128 +1,86 @@
-
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
-import ProjectsSection from '@/components/ProjectsSection';
-import ArthakramSection from '@/components/ArthakramSection';
 import ExperienceSection from '@/components/ExperienceSection';
+import ProjectsSection from '@/components/ProjectsSection';
 import CertificationsSection from '@/components/CertificationsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import MouseFollower from '@/components/MouseFollower';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useTheme } from '@/components/ThemeProvider';
-import { Loader2 } from 'lucide-react';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const { theme } = useTheme();
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    // Simulate loading
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    const startedAt = performance.now();
+    let minimumTimer: number | undefined;
+    let finished = false;
 
-    return () => clearTimeout(timer);
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      const elapsed = performance.now() - startedAt;
+      minimumTimer = window.setTimeout(() => setIsLoading(false), Math.max(0, 700 - elapsed));
+    };
+
+    const onLoad = () => finish();
+    if (document.readyState === 'complete') finish();
+    else window.addEventListener('load', onLoad, { once: true });
+
+    const maximumTimer = window.setTimeout(finish, 1800);
+
+    return () => {
+      window.removeEventListener('load', onLoad);
+      if (minimumTimer) window.clearTimeout(minimumTimer);
+      window.clearTimeout(maximumTimer);
+    };
   }, []);
-
-  // Define loader animation variants
-  const loaderVariants = {
-    initial: { opacity: 0, y: -5 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 5 }
-  };
-
-  const logoVariants = {
-    initial: { scale: 0.9, opacity: 0 },
-    animate: { 
-      scale: 1, 
-      opacity: 1,
-      transition: { 
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    },
-    exit: { 
-      scale: 1.1, 
-      opacity: 0,
-      transition: { 
-        duration: 0.3,
-        ease: "easeIn"
-      }
-    }
-  };
 
   return (
     <>
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {isLoading ? (
-          <motion.div 
-            key="loader"
+          <motion.div
+            className="loading-screen"
             initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="fixed inset-0 bg-background flex flex-col items-center justify-center z-50"
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -14 }}
+            transition={{ duration: reduceMotion ? 0.1 : 0.35 }}
+            role="status"
+            aria-live="polite"
           >
+            <div className="loader-sticker">BUILDING THE USEFUL PART</div>
             <motion.div
-              variants={logoVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="text-center mb-8"
+              className="loader-name"
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
             >
-              <motion.h1 
-                className="text-5xl sm:text-6xl md:text-7xl font-heading font-bold mb-4 relative"
-              >
-                <span className="text-primary">Rishav</span>
-                <motion.span
-                  animate={{ opacity: [0.6, 1, 0.6] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
-                  className="text-primary/70"
-                >
-                  {" "}Dewan
-                </motion.span>
-              </motion.h1>
-
-              <motion.div 
-                className="h-1 w-0 bg-primary mx-auto rounded-full overflow-hidden"
-                animate={{ width: ["0%", "80%", "30%", "100%"] }}
-                transition={{ 
-                  duration: 1.5, 
-                  times: [0, 0.4, 0.7, 1],
-                  ease: "easeInOut" 
-                }}
+              <span>RISHAV</span>
+              <strong>DEWAN</strong>
+            </motion.div>
+            <div className="loader-track" aria-hidden="true">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: '100%' }}
+                transition={{ duration: reduceMotion ? 0.05 : 1.25, ease: [0.22, 1, 0.36, 1] }}
               />
-            </motion.div>
-
-            <motion.div 
-              className="flex items-center justify-center gap-2"
-              variants={loaderVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
-              <Loader2 size={20} className="animate-spin text-primary/70" />
-              <p className="text-foreground/60 text-sm">Loading portfolio...</p>
-            </motion.div>
+            </div>
+            <p>Loading portfolio...</p>
           </motion.div>
         ) : null}
       </AnimatePresence>
 
-      <MouseFollower />
       <Navbar />
-      
       <main>
         <HeroSection />
         <AboutSection />
-        <ProjectsSection />
-        <ArthakramSection />
         <ExperienceSection />
+        <ProjectsSection />
         <CertificationsSection />
         <ContactSection />
       </main>
-      
       <Footer />
     </>
   );

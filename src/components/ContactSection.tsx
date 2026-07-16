@@ -1,314 +1,105 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Github, Rocket, Send, BookOpen } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/hooks/use-toast';
-import { Label } from '@/components/ui/label';
-import { Checkbox } from '@/components/ui/checkbox';
-
-const socialLinks = [
-  { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/rishav-dewan/', label: 'LinkedIn' },
-  { icon: <Phone size={20} />, href: 'https://wa.me/919749452397?text=Hi%20Rishav%20%2C%20I%20just%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20something%20with%20you', label: 'WhatsApp' },
-  { icon: <Github size={20} />, href: 'https://github.com/rish106-hub', label: 'GitHub' },
-  { icon: <Rocket size={20} />, href: 'https://www.producthunt.com/@rishav_dewan', label: 'Product Hunt' },
-  { icon: <BookOpen size={20} />, href: 'https://medium.com/@rishavdewan10', label: 'Medium' },
-];
-
-// Animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
+import { useState, type FormEvent } from 'react';
+import { Send } from 'lucide-react';
+import { Reveal, SectionLabel } from './BrutalUI';
+import { socialLinks } from '@/data/portfolio';
 
 const ContactSection = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-    consent: false
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const name = String(form.get('name') ?? '').trim();
+    const email = String(form.get('email') ?? '').trim();
+    const subject = String(form.get('subject') ?? '').trim();
+    const message = String(form.get('message') ?? '').trim();
 
-  const handleCheckboxChange = (checked: boolean) => {
-    setFormData(prev => ({ ...prev, consent: checked }));
-  };
-
-  const sendWhatsAppMessage = (name: string, email: string, subject: string, message: string) => {
-    // Format the message for WhatsApp
-    const introMessage = `Hi Rishav, I am ${name}, my contact email is ${email}`;
-    const fullMessage = subject 
-      ? `${introMessage}%0A%0ASubject: ${subject}%0A%0A${message}`
-      : `${introMessage}%0A%0A${message}`;
-    
-    // Create WhatsApp URL with the formatted message
-    const whatsappUrl = `https://wa.me/919749452397?text=${fullMessage}`;
-    
-    // Open WhatsApp in a new tab
-    window.open(whatsappUrl, '_blank');
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Missing information",
-        description: "Please fill in all required fields.",
-        variant: "destructive"
-      });
+    if (!name || !email || !message) {
+      setStatus('Add your name, email, and message first.');
       return;
     }
 
-    if (!formData.consent) {
-      toast({
-        title: "Consent required",
-        description: "Please agree to the privacy policy.",
-        variant: "destructive"
-      });
-      return;
-    }
+    const lines = [
+      `Hi Rishav, I’m ${name}.`,
+      `Email: ${email}`,
+      subject ? `Subject: ${subject}` : '',
+      '',
+      message,
+    ].filter((line, index, values) => line || (index > 0 && values[index - 1]));
+    const params = new URLSearchParams({ text: lines.join('\n') });
+    const whatsappUrl = `https://wa.me/919749452397?${params.toString()}`;
 
-    setIsSubmitting(true);
-    
-    try {
-      // Send message via WhatsApp
-      sendWhatsAppMessage(
-        formData.name,
-        formData.email,
-        formData.subject,
-        formData.message
-      );
-      
-      // Show success message
-      toast({
-        title: "Redirecting to WhatsApp",
-        description: "You'll be redirected to WhatsApp to send your message.",
-      });
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-        consent: false
-      });
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to open WhatsApp. Please try again or contact me directly.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    setStatus('Opening WhatsApp with your message.');
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <section id="contact" className="py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-heading">
-            <span className="heading-accent">Get In Touch</span>
-          </h2>
-          <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-            If you are building in AI, fintech, education, or growth-heavy products, I am open to product, strategy, and operator conversations.
-          </p>
-        </motion.div>
+    <section id="contact" className="section section--contact">
+      <div className="page-shell">
+        <SectionLabel
+          eyebrow="A useful conversation beats networking theatre"
+          title="GET_IN_TOUCH"
+          description="If you are building in AI, fintech, education, developer tools, or a messy category that needs sharper product thinking, send the context."
+        />
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
-        >
-          {/* Contact Information Column */}
-          <motion.div variants={itemVariants} className="space-y-8">
-            <div className="bg-white/40 dark:bg-foreground/5 backdrop-blur-sm p-6 rounded-xl border border-primary/5 shadow-sm">
-              <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg text-primary">
-                    <Mail size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Email</h4>
-                    <a href="mailto:rishavdewan10@gmail.com" className="text-foreground/80 hover:text-primary transition-colors">
-                      rishavdewan10@gmail.com
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg text-primary">
-                    <Phone size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Phone</h4>
-                    <a href="tel:+919749452397" className="text-foreground/80 hover:text-primary transition-colors">
-                      (+91) 9749452397
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg text-primary">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Location</h4>
-                    <p className="text-foreground/80">Delhi NCR, India</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <motion.div variants={itemVariants}>
-              <h3 className="text-xl font-semibold mb-6">Connect With Me</h3>
-              
-              <div className="flex flex-wrap gap-4">
-                {socialLinks.map((social, index) => (
-                  <a 
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-4 bg-white/40 dark:bg-foreground/5 backdrop-blur-sm rounded-xl border border-primary/5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center gap-3"
-                    aria-label={social.label}
-                  >
-                    <div className="text-primary">
-                      {social.icon}
-                    </div>
-                    <span>{social.label}</span>
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-          
-          {/* Contact Form Column */}
-          <motion.div 
-            variants={itemVariants}
-            className="bg-white/40 dark:bg-foreground/5 backdrop-blur-sm p-6 rounded-xl border border-primary/5 shadow-sm"
-          >
-            <h3 className="text-xl font-semibold mb-6">Send Me a Message</h3>
-            
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="space-y-2">
-                <Label htmlFor="name">Full Name <span className="text-red-500">*</span></Label>
-                <Input
-                  id="name"
-                  name="name"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="email">Email Address <span className="text-red-500">*</span></Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Your email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="subject">Subject</Label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  placeholder="What is this regarding?"
-                  value={formData.subject}
-                  onChange={handleChange}
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="message">Message <span className="text-red-500">*</span></Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  placeholder="Your message"
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              
-              <div className="flex items-start space-x-2">
-                <Checkbox 
-                  id="consent" 
-                  checked={formData.consent}
-                  onCheckedChange={handleCheckboxChange}
-                />
-                <div className="grid gap-1.5 leading-none">
-                  <Label
-                    htmlFor="consent"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    I agree to the privacy policy <span className="text-red-500">*</span>
-                  </Label>
-                  <p className="text-sm text-muted-foreground">
-                    Your information will only be used to respond to your inquiry.
-                  </p>
-                </div>
-              </div>
-              
-              <Button 
-                type="submit" 
-                className="w-full"
-                disabled={isSubmitting}
+        <div className="contact-layout">
+          <Reveal className="social-grid">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
+                className={`social-card accent-${link.accent}`}
               >
-                {isSubmitting ? (
-                  <>
-                    <span className="animate-spin mr-2">●</span>
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send className="mr-2 h-4 w-4" />
-                    Send Message
-                  </>
-                )}
-              </Button>
+                <span className="social-icon" aria-hidden="true">
+                  {link.icon}
+                </span>
+                <span>
+                  <strong>{link.label}</strong>
+                  <small>{link.handle}</small>
+                </span>
+              </a>
+            ))}
+          </Reveal>
+
+          <Reveal>
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="form-heading">
+                <span aria-hidden="true">✉</span>
+                <div>
+                  <p className="card-kicker">Start with the problem</p>
+                  <h3>Send a message</h3>
+                </div>
+              </div>
+              <div className="form-grid">
+                <label>
+                  Your name *
+                  <input name="name" autoComplete="name" required placeholder="Name" />
+                </label>
+                <label>
+                  Email *
+                  <input name="email" type="email" autoComplete="email" required placeholder="you@company.com" />
+                </label>
+              </div>
+              <label>
+                Subject
+                <input name="subject" placeholder="What are you building?" />
+              </label>
+              <label>
+                Message *
+                <textarea name="message" required rows={6} placeholder="The useful context, constraints, and what you need." />
+              </label>
+              <p className="form-note">This opens WhatsApp. Nothing is stored on this site.</p>
+              <button className="brutal-button brutal-button--primary form-submit" type="submit">
+                Open in WhatsApp <Send size={18} aria-hidden="true" />
+              </button>
+              <p className="form-status" aria-live="polite">
+                {status}
+              </p>
             </form>
-          </motion.div>
-        </motion.div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
