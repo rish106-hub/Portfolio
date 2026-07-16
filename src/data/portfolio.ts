@@ -56,7 +56,60 @@ export interface SocialLink {
   accent: Accent;
 }
 
+export interface ImpactOrganization {
+  name: string;
+  figure: string;
+  measure: string;
+  href: string;
+  accent: Accent;
+}
+
 export const resumeHref = '/Rishav_Dewan_Resume.pdf';
+
+export const impactOrganizations: ImpactOrganization[] = [
+  {
+    name: 'Scaler',
+    figure: '800K+',
+    measure: 'registered users',
+    href: 'https://www.scaler.com/careers',
+    accent: 'blue',
+  },
+  {
+    name: 'ALLEN',
+    figure: '4M+',
+    measure: 'students mentored',
+    href: 'https://www.allen.ac.in/delhi/',
+    accent: 'yellow',
+  },
+  {
+    name: 'Arizona State',
+    figure: '194K+',
+    measure: 'annual enrollment',
+    href: 'https://www.asu.edu/about/facts-and-figures',
+    accent: 'orange',
+  },
+  {
+    name: 'Newton School',
+    figure: '15K+',
+    measure: 'students enrolled',
+    href: 'https://www.newtonschool.co/',
+    accent: 'mint',
+  },
+  {
+    name: 'Lakshadweep',
+    figure: '64K+',
+    measure: 'residents in the UT',
+    href: 'https://lakshadweep.gov.in/',
+    accent: 'blue',
+  },
+  {
+    name: 'Veeam',
+    figure: '550K+',
+    measure: 'customer organizations',
+    href: 'https://www.veeam.com/resources/customer-stories.html',
+    accent: 'mint',
+  },
+];
 
 export const profileCards = [
   {
@@ -165,7 +218,7 @@ export const experiences: Experience[] = [
     summary:
       'Worked across product design, funnel diagnosis, growth systems, and implementation for startup and education clients.',
     achievements: [
-      'Shipped UX and homepage revamps for 10+ clients including Scaler, Arizona State University, Allen Digital, Wiom, and Cintana.',
+      'Shipped UX and homepage revamps for 10+ clients including Scaler, Veeam, Arizona State University, Allen Digital, Wiom, and Cintana.',
       'Launched the Product × People podcast and built its taxonomy, cadence, and guest pipeline.',
       'Grew Enzo Lab\'s LinkedIn audience by 50% in three months.',
     ],
