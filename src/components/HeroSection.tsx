@@ -37,18 +37,19 @@ const HeroSection = () => {
           </div>
           <div className="hero-proof" aria-label="Portfolio highlights">
             <div>
-              <strong>2,000+</strong>
-              <span>resumes validated</span>
+              <strong>5M+</strong>
+              <span>people-scale org footprint</span>
+            </div>
+            <div>
+              <strong>550K+</strong>
+              <span>Veeam customer organizations</span>
             </div>
             <div>
               <strong>17</strong>
               <span>merged open-source PRs</span>
             </div>
-            <div>
-              <strong>850+</strong>
-              <span>learners reached</span>
-            </div>
           </div>
+          <p className="hero-proof-note">Organization-wide scale, not a claim that every person used my work.</p>
         </motion.div>
 
         <motion.div
@@ -64,10 +65,10 @@ const HeroSection = () => {
           <div className="portrait-frame">
             <div className="portrait-backdrop" aria-hidden="true" />
             <img
-              src="https://avatars.githubusercontent.com/u/181550078?v=4"
-              alt="Rishav Dewan"
-              width="520"
-              height="620"
+              src="/rishav-portrait.jpeg"
+              alt="Rishav Dewan standing outdoors"
+              width="906"
+              height="1266"
               loading="eager"
             />
           </div>

@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
-  <title id="title">bnBeyond monogram</title>
-  <rect width="128" height="128" rx="12" fill="#111111"/>
-  <path d="M22 25h28c18 0 29 8 29 22 0 8-4 14-11 18 10 3 16 10 16 20 0 15-12 24-32 24H22V25Zm27 33c9 0 14-3 14-10 0-6-5-9-14-9H38v19h11Zm3 37c10 0 16-4 16-11 0-7-6-11-16-11H38v22h14Z" fill="#F8F7F2"/>
-  <path d="M88 25h18v84H88z" fill="#F05033"/>
-</svg>

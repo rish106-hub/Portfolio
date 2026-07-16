@@ -1,5 +1,6 @@
-import { BrutalCard, Reveal, SectionLabel, Tag } from './BrutalUI';
-import { profileCards, proofPoints, skillGroups } from '@/data/portfolio';
+import { ArrowUpRight } from 'lucide-react';
+import { BrutalCard, ExternalLinkButton, Reveal, SectionLabel, Tag } from './BrutalUI';
+import { impactOrganizations, profileCards, proofPoints, skillGroups } from '@/data/portfolio';
 
 const AboutSection = () => (
   <>
@@ -29,6 +30,44 @@ const AboutSection = () => (
       </div>
     </section>
 
+    <section className="impact-section" aria-labelledby="impact-footprint-title">
+      <div className="page-shell">
+        <Reveal className="impact-ledger">
+          <div className="impact-total">
+            <p className="card-kicker">Published organizational footprint</p>
+            <strong>5M+</strong>
+            <h2 id="impact-footprint-title">people across education and public ecosystems</h2>
+            <p>
+              I contributed to products, workflows, or mandates inside these organizations. This is a conservative
+              aggregate of their published scale, not a direct-user claim.
+            </p>
+          </div>
+          <div className="impact-org-grid">
+            {impactOrganizations.map((organization) => (
+              <a
+                key={organization.name}
+                className={`impact-org accent-${organization.accent}`}
+                href={organization.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${organization.name}: ${organization.figure} ${organization.measure}. View official source`}
+              >
+                <span>{organization.name}</span>
+                <strong>{organization.figure}</strong>
+                <small>{organization.measure}</small>
+                <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        </Reveal>
+        <p className="impact-method">
+          Estimate basis: 800K+ Scaler registered users, 4M+ ALLEN students mentored, 194K+ ASU annual enrollment,
+          15K+ Newton learners, and 64K+ Lakshadweep residents. Veeam's 550K+ customer organizations are shown
+          separately and are not included in the 5M+ people estimate.
+        </p>
+      </div>
+    </section>
+
     <section id="work" className="section section--work">
       <div className="page-shell">
         <SectionLabel
@@ -53,6 +92,17 @@ const AboutSection = () => (
                     </Tag>
                   ))}
                 </div>
+                {proof.href ? (
+                  <ExternalLinkButton
+                    className="proof-source"
+                    href={proof.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    showIcon
+                  >
+                    View source
+                  </ExternalLinkButton>
+                ) : null}
               </BrutalCard>
             </Reveal>
           ))}

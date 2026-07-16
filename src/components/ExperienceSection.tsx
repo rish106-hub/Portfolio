@@ -20,8 +20,15 @@ const ExperienceSection = () => (
               </div>
               <div className="experience-heading">
                 <div className="experience-company">
-                  <div className="company-logo">
-                    <img src={experience.logo} alt={experience.logoAlt} width="64" height="64" loading="lazy" />
+                  <div className={`company-logo company-logo--${experience.logoMode}`}>
+                    <img
+                      src={experience.logo}
+                      alt={experience.logoAlt}
+                      width={experience.logoMode === 'wordmark' ? 132 : 72}
+                      height="72"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   <div>
                     <p className="card-kicker">{experience.role}</p>

@@ -6,6 +6,7 @@ export interface ProofPoint {
   context: string;
   description: string;
   tags: string[];
+  href?: string;
   accent: Accent;
 }
 
@@ -20,6 +21,7 @@ export interface Experience {
   accent: Accent;
   logo: string;
   logoAlt: string;
+  logoMode: 'symbol' | 'wordmark';
 }
 
 export interface Project {
@@ -55,7 +57,60 @@ export interface SocialLink {
   accent: Accent;
 }
 
+export interface ImpactOrganization {
+  name: string;
+  figure: string;
+  measure: string;
+  href: string;
+  accent: Accent;
+}
+
 export const resumeHref = '/Rishav_Dewan_Resume.pdf';
+
+export const impactOrganizations: ImpactOrganization[] = [
+  {
+    name: 'Scaler',
+    figure: '800K+',
+    measure: 'registered users',
+    href: 'https://www.scaler.com/careers',
+    accent: 'blue',
+  },
+  {
+    name: 'ALLEN',
+    figure: '4M+',
+    measure: 'students mentored',
+    href: 'https://www.allen.ac.in/delhi/',
+    accent: 'yellow',
+  },
+  {
+    name: 'Arizona State',
+    figure: '194K+',
+    measure: 'annual enrollment',
+    href: 'https://www.asu.edu/about/facts-and-figures',
+    accent: 'orange',
+  },
+  {
+    name: 'Newton School',
+    figure: '15K+',
+    measure: 'students enrolled',
+    href: 'https://www.newtonschool.co/',
+    accent: 'mint',
+  },
+  {
+    name: 'Lakshadweep',
+    figure: '64K+',
+    measure: 'residents in the UT',
+    href: 'https://lakshadweep.gov.in/',
+    accent: 'blue',
+  },
+  {
+    name: 'Veeam',
+    figure: '550K+',
+    measure: 'customer organizations',
+    href: 'https://www.veeam.com/resources/customer-stories.html',
+    accent: 'mint',
+  },
+];
 
 export const profileCards = [
   {
@@ -92,12 +147,13 @@ export const proofPoints: ProofPoint[] = [
     accent: 'blue',
   },
   {
-    icon: '🎙️',
-    title: 'Voice assessment at campus scale',
-    context: 'Rishi Bolo | Rishihood University',
+    icon: '🗓️',
+    title: 'Know the debit before it hits',
+    context: 'DebitMap | Personal finance intelligence',
     description:
-      'Built the assessment and placement logic for 850+ learners, including retakes, faculty review, and manual path overrides. The system earned 4.8/5 feedback from 500+ learners.',
-    tags: ['ElevenLabs', 'Rules engine', '850+ learners'],
+      'Built an explainable 30-day recurring-debit forecast from Indian bank and payment messages. On held-out FinEE test data, its lightweight classifier reached 92.16% category accuracy while keeping normalized financial data on-device.',
+    tags: ['Kotlin', 'FastAPI', 'Privacy by design'],
+    href: 'https://github.com/rish106-hub/debitmap',
     accent: 'yellow',
   },
   {
@@ -127,15 +183,16 @@ export const experiences: Experience[] = [
     period: 'May 2026 - July 2026',
     location: 'Remote',
     summary:
-      'Completed a three-month Scale AI contract focused on making LLM behavior more reliable and measurable.',
+      'Working with Scale AI on a three-month AI evaluation contract running from May through July 2026, focused on making LLM behavior more reliable and measurable.',
     achievements: [
       'Worked across prompt experimentation, evaluation workflows, and model-quality analysis.',
       'Protected project details and customer information under NDA.',
     ],
     stack: ['LLM evaluation', 'Prompt experimentation', 'Quality analysis'],
     accent: 'orange',
-    logo: 'https://www.google.com/s2/favicons?domain=scale.com&sz=128',
+    logo: '/company-logos/scale-ai.svg',
     logoAlt: 'Scale AI logo',
+    logoMode: 'wordmark',
   },
   {
     role: 'Product Intern',
@@ -151,8 +208,9 @@ export const experiences: Experience[] = [
     ],
     stack: ['FastAPI', 'PostgreSQL', 'Gemini 2.5 Flash', 'Koyo'],
     accent: 'blue',
-    logo: 'https://www.google.com/s2/favicons?domain=newtonschool.co&sz=128',
+    logo: '/company-logos/newton-school.svg',
     logoAlt: 'Newton School logo',
+    logoMode: 'wordmark',
   },
   {
     role: 'Product & Growth Associate Intern',
@@ -162,14 +220,15 @@ export const experiences: Experience[] = [
     summary:
       'Worked across product design, funnel diagnosis, growth systems, and implementation for startup and education clients.',
     achievements: [
-      'Shipped UX and homepage revamps for 10+ clients including Scaler, Arizona State University, Allen Digital, Wiom, and Cintana.',
+      'Shipped UX and homepage revamps for 10+ clients including Scaler, Veeam, Arizona State University, Allen Digital, Wiom, and Cintana.',
       'Launched the Product × People podcast and built its taxonomy, cadence, and guest pipeline.',
       'Grew Enzo Lab\'s LinkedIn audience by 50% in three months.',
     ],
     stack: ['User journeys', 'Funnel analysis', 'GTM', 'Content systems'],
     accent: 'mint',
-    logo: 'https://www.google.com/s2/favicons?domain=enzolab.in&sz=128',
+    logo: '/company-logos/enzo-lab.png',
     logoAlt: 'Enzo Lab logo',
+    logoMode: 'wordmark',
   },
   {
     role: "Founder’s Office Intern",
@@ -177,7 +236,7 @@ export const experiences: Experience[] = [
     period: 'February 2025 - July 2025',
     location: 'Sonipat, India',
     summary:
-      'Built Rishi Bolo, a voice assessment and learning-path system for a large learner cohort.',
+      'Built a voice assessment and personalized learning-path workflow for a large learner cohort.',
     achievements: [
       'Designed the passage assessment, four-tier placement logic, and personalized progression paths.',
       'Added retakes, faculty review, and authorized manual overrides for edge cases.',
@@ -185,8 +244,9 @@ export const experiences: Experience[] = [
     ],
     stack: ['ElevenLabs', 'Learning design', 'Workflow design'],
     accent: 'yellow',
-    logo: 'https://www.google.com/s2/favicons?domain=rishihood.edu.in&sz=128',
+    logo: '/company-logos/rishihood-university.png',
     logoAlt: 'Rishihood University logo',
+    logoMode: 'wordmark',
   },
   {
     role: 'Process Automation Intern',
@@ -202,8 +262,9 @@ export const experiences: Experience[] = [
     ],
     stack: ['Guesty', 'Zapier', 'Meta Ads', 'Process automation'],
     accent: 'orange',
-    logo: '/bnbeyond-mark.svg',
-    logoAlt: 'bnBeyond monogram',
+    logo: '/company-logos/bnbeyond.png',
+    logoAlt: 'bnBeyond hospitality redefined logo',
+    logoMode: 'wordmark',
   },
 ];
 
