@@ -59,6 +59,7 @@ export interface Credential {
 
 export interface SkillGroup {
   category: string;
+  description: string;
   items: string[];
   accent: Accent;
 }
@@ -182,7 +183,11 @@ export const profileCards = [
     icon: '🧠',
     title: 'Operating Mode',
     headline: 'AI-native product builder',
-    lines: ['Product judgment + technical direction', 'Fast experiments with real validation', 'Systems that explain their decisions'],
+    lines: [
+      'Product discovery, PRDs, prioritization, and technical scoping',
+      'Fast experiments with clear validation criteria and measurable outcomes',
+      'Decision systems that preserve human review, context, and control',
+    ],
     accent: 'blue' as Accent,
   },
   {
@@ -203,7 +208,7 @@ export const proofPoints: ProofPoint[] = [
     context: 'Mieru + Koyo | Newton School',
     description:
       'Directed a six-stage resume screening workflow, then carried structured evidence into Koyo interview sessions. Validated across 2,000+ resumes and reduced false positives by 40% versus Binary.so.',
-    tags: ['Gemini 2.5', 'FastAPI', 'Human in the loop'],
+    tags: ['Domain: HR tech', 'Product: decision rubric', 'AI: Gemini 2.5', 'Engineering: FastAPI'],
     accent: 'blue',
   },
   {
@@ -212,7 +217,7 @@ export const proofPoints: ProofPoint[] = [
     context: 'DebitMap | Personal finance intelligence',
     description:
       'Built an explainable 30-day recurring-debit forecast from Indian bank and payment messages. On held-out FinEE test data, its lightweight classifier reached 92.16% category accuracy while keeping normalized financial data on-device.',
-    tags: ['Kotlin', 'FastAPI', 'Privacy by design'],
+    tags: ['Domain: fintech', 'Product: debit forecasting', 'Engineering: Kotlin', 'Privacy: on-device data'],
     links: [{ label: 'View source', href: 'https://github.com/rish106-hub/debitmap' }],
     invitation: 'Collaborators welcome',
     accent: 'yellow',
@@ -223,7 +228,7 @@ export const proofPoints: ProofPoint[] = [
     context: 'GitRescue | VS Code + Cursor',
     description:
       'Shipped a sidebar companion that explains what Git sees, why the state matters, and the safest next step. Ten audited handlers and two-step safeguards protect destructive operations.',
-    tags: ['TypeScript', 'VS Code API', 'Real Git tests'],
+    tags: ['Domain: dev tools', 'Product: Git safety', 'Engineering: TypeScript', 'Quality: Real-Git tests'],
     links: [
       {
         label: 'VS Code Marketplace',
@@ -239,7 +244,7 @@ export const proofPoints: ProofPoint[] = [
     context: 'ARTH | Privacy-first fintech',
     description:
       'Directed a seven-question tax-readiness flow spanning 8+ deduction categories, regime comparison, encrypted document storage, and clear next actions for salaried Indians.',
-    tags: ['Flutter', 'Fastify', 'PostgreSQL'],
+    tags: ['Domain: fintech', 'Product: tax readiness', 'Engineering: Flutter', 'Data: PostgreSQL'],
     links: [
       {
         label: 'Download ARTH release',
@@ -267,7 +272,7 @@ export const experiences: Experience[] = [
       'Worked across prompt experimentation, evaluation workflows, and model-quality analysis.',
       'Protected project details and customer information under NDA.',
     ],
-    stack: ['LLM evaluation', 'Prompt experimentation', 'Quality analysis'],
+    stack: ['Product: evaluation design', 'AI: prompt experiments', 'Quality: model analysis'],
     accent: 'orange',
     logo: '/company-logos/scale-ai.svg',
     logoAlt: 'Scale AI logo',
@@ -285,7 +290,7 @@ export const experiences: Experience[] = [
       'Validated the workflow on 2,000+ resumes from PW and Allen Digital hiring drives.',
       'Reduced false positives by 40% and cut screening from roughly 120 to 60-90 minutes.',
     ],
-    stack: ['FastAPI', 'PostgreSQL', 'Gemini 2.5 Flash', 'Koyo'],
+    stack: ['Product: screening workflow', 'AI: LLM scoring', 'Engineering: FastAPI', 'Data: PostgreSQL'],
     accent: 'blue',
     logo: '/company-logos/newton-school.svg',
     logoAlt: 'Newton School logo',
@@ -311,7 +316,7 @@ export const experiences: Experience[] = [
       'Launched the Product × People podcast and built its taxonomy, cadence, and guest pipeline.',
       'Grew Enzo Lab\'s LinkedIn audience by 50% in three months.',
     ],
-    stack: ['User journeys', 'Funnel analysis', 'GTM', 'Content systems'],
+    stack: ['Product: UX audits', 'Growth: funnel analysis', 'Strategy: GTM', 'Operations: content systems'],
     accent: 'mint',
     logo: '/company-logos/enzo-lab.png',
     logoAlt: 'Enzo Lab logo',
@@ -337,7 +342,7 @@ export const experiences: Experience[] = [
       'Added retakes, faculty review, and authorized manual overrides for edge cases.',
       'Reached 850+ learners and earned 4.8/5 feedback from 500+ learners.',
     ],
-    stack: ['ElevenLabs', 'Learning design', 'Workflow design'],
+    stack: ['Product: learning paths', 'AI: voice assessment', 'Workflow: human overrides', 'Measurement: feedback loops'],
     accent: 'yellow',
     logo: '/company-logos/rishihood-university.png',
     logoAlt: 'Rishihood University logo',
@@ -355,7 +360,7 @@ export const experiences: Experience[] = [
       'Raised Airbnb conversion from 5% to 15% in 25 days.',
       'Reduced CAC by 5% and improved operational efficiency by 20%.',
     ],
-    stack: ['Guesty', 'Zapier', 'Meta Ads', 'Process automation'],
+    stack: ['Operations: Guesty', 'Automation: Zapier', 'Growth: paid acquisition', 'Business: CAC'],
     accent: 'orange',
     logo: '/company-logos/bnbeyond.png',
     logoAlt: 'bnBeyond hospitality redefined logo',
@@ -365,29 +370,40 @@ export const experiences: Experience[] = [
 
 export const skillGroups: SkillGroup[] = [
   {
-    category: 'Product',
-    items: ['Product strategy', 'User research', 'Roadmapping', 'PRDs', 'GTM', 'Funnel analysis'],
+    category: 'Product Definition',
+    description: 'Turn an ambiguous opportunity into a scoped problem, a priority call, and a buildable product brief.',
+    items: ['Problem framing', 'User research', 'PRDs', 'Prioritization', 'Roadmaps', 'GTM positioning'],
     accent: 'yellow',
   },
   {
-    category: 'Engineering',
-    items: ['Python', 'JavaScript', 'TypeScript', 'MERN', 'SQL', 'REST APIs'],
-    accent: 'blue',
-  },
-  {
-    category: 'AI + Data',
-    items: ['Machine learning', 'GenAI', 'RAG', 'MCP', 'Model evaluation', 'Tableau'],
-    accent: 'orange',
-  },
-  {
-    category: 'Analytics',
-    items: ['PostHog', 'Mixpanel', 'Amplitude', 'Google Analytics', 'Hotjar'],
+    category: 'Product Measurement',
+    description: 'Instrument behavior, read the funnel, and decide what to improve using evidence rather than opinion.',
+    items: ['Event taxonomy', 'PostHog', 'Mixpanel', 'Amplitude', 'Funnel analysis', 'Experiment design'],
     accent: 'mint',
   },
   {
-    category: 'PM + Delivery Tools',
-    items: ['Linear', 'Jira', 'Notion', 'Figma', 'Miro', 'Google Sheets', 'Git'],
+    category: 'Application Engineering',
+    description: 'Build product surfaces, workflows, and service integrations that can be tested with real users.',
+    items: ['Python', 'JavaScript', 'TypeScript', 'React + MERN', 'FastAPI', 'REST APIs'],
+    accent: 'blue',
+  },
+  {
+    category: 'AI Systems',
+    description: 'Design AI-assisted workflows with inspectable prompts, evaluation loops, retrieval, and human control.',
+    items: ['LLM evaluation', 'Prompt engineering', 'RAG', 'MCP', 'Gemini API', 'ElevenLabs'],
+    accent: 'orange',
+  },
+  {
+    category: 'Data + Business Analysis',
+    description: 'Translate product and operating data into decisions about cost, growth, process, and customer value.',
+    items: ['SQL', 'PostgreSQL', 'Tableau', 'Google Sheets', 'Unit economics', 'Financial modelling'],
     accent: 'yellow',
+  },
+  {
+    category: 'Delivery + Collaboration',
+    description: 'Align people, decisions, and execution through visible planning, design, documentation, and version control.',
+    items: ['Linear', 'Jira', 'Notion', 'Figma', 'Miro', 'Git + GitHub'],
+    accent: 'mint',
   },
 ];
 
@@ -399,7 +415,7 @@ export const projects: Project[] = [
       'A privacy-first tax-readiness app that identifies deduction gaps, compares tax regimes, and turns a complex filing problem into prioritized actions.',
     image: '/arth-project.jpeg',
     imageAlt: 'ARTH tax gap intelligence app screens',
-    tags: ['Flutter', 'Fastify', 'PostgreSQL', 'Firebase'],
+    tags: ['Domain: fintech', 'Product: tax readiness', 'Engineering: Flutter', 'Data: PostgreSQL'],
     github: 'https://github.com/rish106-hub/ARTH',
     live: 'https://arth-website.vercel.app',
     release: 'https://github.com/rish106-hub/ARTH/releases/tag/v1.0.0-debug.1',
@@ -416,7 +432,7 @@ export const projects: Project[] = [
       'A six-stage recruiter workflow that turns resumes and a JD into an editable rubric, transparent evidence, and ranked shortlists before passing context to Koyo interviews.',
     image: '/mieru-project.png',
     imageAlt: 'Mieru recruiter workspace with evidence-backed candidate shortlisting',
-    tags: ['Next.js', 'FastAPI', 'PostgreSQL', 'Gemini 2.5'],
+    tags: ['Domain: HR tech', 'Product: explainable screening', 'Engineering: FastAPI', 'AI: Gemini 2.5'],
     github: 'https://github.com/rish106-hub/ats-frontend',
     proof: {
       label: 'Integrates with Koyo',
@@ -431,7 +447,7 @@ export const projects: Project[] = [
       'A Chrome extension that captures WhatsApp leads, lets the user review the record, and writes clean rows to Google Sheets through an explicit OAuth flow.',
     image: '/leadline-project.svg',
     imageAlt: 'Leadline extension interface showing a WhatsApp contact captured into a reviewed Google Sheet lead record',
-    tags: ['Chrome extension', 'JavaScript', 'OAuth', 'Sheets API'],
+    tags: ['Domain: sales ops', 'Product: lead capture', 'Engineering: Chrome extension', 'Integration: Sheets API'],
     github: 'https://github.com/rish106-hub/Leadline',
     proof: {
       label: 'Open source on GitHub',
@@ -446,7 +462,7 @@ export const projects: Project[] = [
       'An always-on Git companion for VS Code and Cursor that explains repository state in plain English and routes intent only to tested, audited handlers.',
     image: 'https://raw.githubusercontent.com/rish106-hub/gitdoc/main/media/gitrescue-marketplace-banner.svg',
     imageAlt: 'GitRescue marketplace banner showing the Git rescue shield',
-    tags: ['TypeScript', 'VS Code API', 'Vitest', 'GitHub Actions'],
+    tags: ['Domain: dev tools', 'Product: Git guidance', 'Engineering: VS Code API', 'Quality: Vitest'],
     github: 'https://github.com/rish106-hub/gitdoc',
     live: 'https://marketplace.visualstudio.com/items?itemName=rish106-hub.git-rescue',
     proof: {
@@ -462,7 +478,7 @@ export const secondaryProjects = [
     title: 'CostSense',
     description: 'Multi-agent cost intelligence with anomaly detection, financial impact scoring, and CFO approval gates.',
     href: 'https://github.com/rish106-hub/CostSense',
-    tags: ['Python', 'FastAPI', 'LangChain', 'pgvector'],
+    tags: ['Domain: FinOps', 'Product: cost intelligence', 'Engineering: FastAPI', 'AI: LangChain'],
     accent: 'yellow' as Accent,
   },
 ];
