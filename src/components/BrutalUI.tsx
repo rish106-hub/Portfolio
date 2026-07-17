@@ -70,10 +70,10 @@ export const Reveal = ({ children, className = '' }: { children: ReactNode; clas
   return (
     <motion.div
       className={className}
-      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 26, scale: 0.985, filter: 'blur(5px)' }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
       viewport={{ once: true, amount: 0.12 }}
-      transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.56, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>

@@ -139,6 +139,44 @@ img {
   pointer-events: none;
 }
 
+.journey-progress {
+  position: fixed;
+  top: 83px;
+  left: 50%;
+  z-index: 49;
+  display: grid;
+  grid-template-columns: auto minmax(90px, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  width: min(1180px, calc(100% - 88px));
+  padding: 6px 10px;
+  border: 2px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: 3px 3px 0 var(--line);
+  color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+
+.journey-progress__track {
+  height: 5px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.journey-progress__fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--orange), var(--yellow), var(--mint), var(--blue));
+  transform-origin: left center;
+}
+
 .nav-shell {
   display: flex;
   align-items: center;
@@ -325,6 +363,40 @@ img {
   transform: rotate(-43deg);
 }
 
+.hero-drop {
+  position: absolute;
+  z-index: 1;
+  padding: 9px 12px;
+  border: 3px solid var(--line);
+  box-shadow: 6px 6px 0 var(--line);
+  color: #111111;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform-style: preserve-3d;
+}
+
+.hero-drop--orange {
+  top: 144px;
+  left: 9%;
+  background: var(--orange);
+}
+
+.hero-drop--blue {
+  top: 232px;
+  right: 7%;
+  background: var(--blue);
+}
+
+.hero-drop--mint {
+  right: 24%;
+  bottom: 118px;
+  background: var(--mint);
+}
+
 .hero-grid {
   position: relative;
   z-index: 1;
@@ -332,6 +404,7 @@ img {
   grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
   gap: 70px;
   align-items: center;
+  perspective: 1300px;
 }
 
 .hero-copy h1 {
@@ -466,6 +539,9 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: default;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .portrait-frame {
@@ -1347,6 +1423,21 @@ article.impact-org--story:hover {
 .project-card {
   height: 100%;
   overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.brutal-card--interactive.project-card {
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms ease;
+}
+
+.brutal-card--interactive.project-card:hover {
+  transform: perspective(1100px) rotateX(1.5deg) rotateY(-1.2deg) translate3d(-6px, -8px, 18px);
+  box-shadow: 13px 14px 0 var(--line);
+}
+
+.project-grid > :nth-child(even) .brutal-card--interactive.project-card:hover {
+  transform: perspective(1100px) rotateX(1.5deg) rotateY(1.2deg) translate3d(-6px, -8px, 18px);
 }
 
 .project-image-wrap {
@@ -1355,6 +1446,7 @@ article.impact-org--story:hover {
   overflow: hidden;
   border-bottom: var(--border);
   background: color-mix(in srgb, var(--accent) 35%, var(--surface));
+  transform: translateZ(14px);
 }
 
 .project-image-wrap img {
@@ -1367,6 +1459,52 @@ article.impact-org--story:hover {
 
 .project-card:hover .project-image-wrap img {
   transform: scale(1.025);
+}
+
+.project-proof-link {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: calc(100% - 28px);
+  padding: 7px 9px;
+  border: 2px solid #111111;
+  background: #111111;
+  box-shadow: 3px 3px 0 var(--accent);
+  color: #f8f7f2;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.project-proof-link > span {
+  flex: 0 0 auto;
+  padding-right: 7px;
+  border-right: 1px solid currentColor;
+  color: var(--mint);
+}
+
+.project-proof-link:hover {
+  transform: translate(-2px, -2px);
+  background: var(--accent);
+  box-shadow: 5px 5px 0 #111111;
+  color: #111111;
+}
+
+.project-proof-link:hover > span {
+  color: #111111;
+}
+
+.project-proof-link:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
 }
 
 .project-stamp {
@@ -1388,6 +1526,7 @@ article.impact-org--story:hover {
 
 .project-copy {
   padding: 30px;
+  transform: translateZ(26px);
 }
 
 .project-copy h3 {
@@ -1413,12 +1552,48 @@ article.impact-org--story:hover {
   margin-top: 70px;
 }
 
+.secondary-projects__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
 .secondary-projects__label {
   display: inline-block;
   padding: 7px 10px;
   border: 2px solid var(--line);
   background: var(--blue);
   color: #111111;
+}
+
+.github-profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 11px;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  box-shadow: 3px 3px 0 var(--line);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.github-profile-link:hover {
+  transform: translate(-2px, -2px);
+  background: var(--mint);
+  box-shadow: 5px 5px 0 var(--line);
+}
+
+.github-profile-link:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
 }
 
 .mini-project {
@@ -1965,6 +2140,10 @@ a.credential-card:hover {
     grid-template-columns: 1fr;
   }
 
+  .hero-drop {
+    display: none;
+  }
+
   .hero-copy {
     max-width: 720px;
   }
@@ -2030,6 +2209,11 @@ a.credential-card:hover {
     margin-bottom: 42px;
   }
 
+  .secondary-projects__heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
   .section-label {
     max-width: 100%;
     padding: 10px 13px;
@@ -2039,6 +2223,17 @@ a.credential-card:hover {
 
   .site-header {
     padding: 10px 10px 0;
+  }
+
+  .journey-progress {
+    top: 71px;
+    grid-template-columns: 1fr;
+    width: calc(100% - 44px);
+    padding: 5px 7px;
+  }
+
+  .journey-progress > span {
+    display: none;
   }
 
   .nav-shell {

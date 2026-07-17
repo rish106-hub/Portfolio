@@ -20,6 +20,33 @@ const HeroSection = () => {
     <section id="home" className="hero-section">
       <div className="hero-stripe hero-stripe--blue" aria-hidden="true" />
       <div className="hero-stripe hero-stripe--yellow" aria-hidden="true" />
+      <motion.div
+        className="hero-drop hero-drop--orange"
+        aria-hidden="true"
+        initial={reduceMotion ? false : { opacity: 0, y: -240, rotate: -28, scale: 0.72 }}
+        animate={{ opacity: 1, y: 0, rotate: -12, scale: 1 }}
+        transition={{ type: 'spring', stiffness: 115, damping: 12, delay: 0.22 }}
+      >
+        SHIP
+      </motion.div>
+      <motion.div
+        className="hero-drop hero-drop--blue"
+        aria-hidden="true"
+        initial={reduceMotion ? false : { opacity: 0, y: -280, rotate: 26, scale: 0.68 }}
+        animate={{ opacity: 1, y: 0, rotate: 9, scale: 1 }}
+        transition={{ type: 'spring', stiffness: 108, damping: 13, delay: 0.3 }}
+      >
+        TEST
+      </motion.div>
+      <motion.div
+        className="hero-drop hero-drop--mint"
+        aria-hidden="true"
+        initial={reduceMotion ? false : { opacity: 0, y: -190, rotate: -20, scale: 0.72 }}
+        animate={{ opacity: 1, y: 0, rotate: 6, scale: 1 }}
+        transition={{ type: 'spring', stiffness: 122, damping: 13, delay: 0.38 }}
+      >
+        LEARN
+      </motion.div>
       <div className="page-shell hero-grid">
         <motion.div
           className="hero-copy"
@@ -27,17 +54,50 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Tag accent="mint">Available for ambitious teams</Tag>
-          <p className="hero-kicker">Product judgment. Technical direction. Real execution.</p>
-          <h1>
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 12, rotate: -2 }}
+            animate={{ opacity: 1, y: 0, rotate: 0 }}
+            transition={{ duration: 0.34, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Tag accent="mint">Available for ambitious teams</Tag>
+          </motion.div>
+          <motion.p
+            className="hero-kicker"
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.34, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
+          >
+            Product judgment. Technical direction. Real execution.
+          </motion.p>
+          <motion.h1
+            initial={reduceMotion ? false : { opacity: 0, y: 28, skewY: 2 }}
+            animate={{ opacity: 1, y: 0, skewY: 0 }}
+            transition={{ duration: 0.55, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
             AI PRODUCT
-            <span>BUILDER</span>
-          </h1>
-          <p className="hero-summary">
+            <motion.span
+              initial={reduceMotion ? false : { opacity: 0, x: -34 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.42, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
+            >
+              BUILDER
+            </motion.span>
+          </motion.h1>
+          <motion.p
+            className="hero-summary"
+            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.42, delay: 0.38, ease: [0.22, 1, 0.36, 1] }}
+          >
             I turn ambiguous problems into usable AI systems and products, from recruiter workflows and
             voice assessment to fintech and developer tools.
-          </p>
-          <div className="hero-actions">
+          </motion.p>
+          <motion.div
+            className="hero-actions"
+            initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.48, ease: [0.22, 1, 0.36, 1] }}
+          >
             <ExternalLinkButton variant="primary" href="#work">
               See the work
             </ExternalLinkButton>
@@ -50,36 +110,75 @@ const HeroSection = () => {
             >
               Download resume
             </button>
-          </div>
+          </motion.div>
           <div className="hero-proof" aria-label="People reached through Rishav's work">
-            <div>
+            <motion.div
+              initial={reduceMotion ? false : { opacity: 0, y: 16, rotate: -2 }}
+              animate={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{ duration: 0.36, delay: 0.56, ease: [0.22, 1, 0.36, 1] }}
+            >
               <strong>5M+</strong>
               <span>learner reach</span>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={reduceMotion ? false : { opacity: 0, y: 16, rotate: 2 }}
+              animate={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{ duration: 0.36, delay: 0.62, ease: [0.22, 1, 0.36, 1] }}
+            >
               <strong>2,000+</strong>
               <span>candidates screened through Mieru</span>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={reduceMotion ? false : { opacity: 0, y: 16, rotate: -2 }}
+              animate={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{ duration: 0.36, delay: 0.68, ease: [0.22, 1, 0.36, 1] }}
+            >
               <strong>850+</strong>
               <span>learners served through voice assessment</span>
-            </div>
+            </motion.div>
           </div>
-          <p className="hero-impact-region">
-            Work shipped across <strong>India</strong>, <strong>USA</strong>, <strong>France</strong>, and <strong>UAE</strong>.
-          </p>
+          <motion.p
+            className="hero-impact-region"
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.32, delay: 0.76, ease: [0.22, 1, 0.36, 1] }}
+          >
+            Work shipped across <strong>India</strong>, <strong>USA</strong>, <strong>France</strong> and <strong>UAE</strong>.
+          </motion.p>
         </motion.div>
 
         <motion.div
           className="workbench"
           initial={reduceMotion ? false : { opacity: 0, scale: 0.95, rotate: 2 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 0.55, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={reduceMotion ? undefined : { y: -8, rotate: -1 }}
+          transition={{ type: 'spring', stiffness: 135, damping: 16, delay: 0.12 }}
           aria-label="Rishav Dewan, AI product builder"
         >
-          <div className="workbench-note workbench-note--build">BUILD</div>
-          <div className="workbench-note workbench-note--product">PRODUCT</div>
-          <div className="workbench-note workbench-note--operate">OPERATE</div>
+          <motion.div
+            className="workbench-note workbench-note--build"
+            initial={reduceMotion ? false : { opacity: 0, x: -24, y: 18, rotate: -14 }}
+            animate={{ opacity: 1, x: 0, y: 0, rotate: -8 }}
+            transition={{ duration: 0.42, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
+          >
+            BUILD
+          </motion.div>
+          <motion.div
+            className="workbench-note workbench-note--product"
+            initial={reduceMotion ? false : { opacity: 0, x: 24, y: -18, rotate: 12 }}
+            animate={{ opacity: 1, x: 0, y: 0, rotate: 7 }}
+            transition={{ duration: 0.42, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            PRODUCT
+          </motion.div>
+          <motion.div
+            className="workbench-note workbench-note--operate"
+            initial={reduceMotion ? false : { opacity: 0, x: 28, y: 18, rotate: -10 }}
+            animate={{ opacity: 1, x: 0, y: 0, rotate: -5 }}
+            transition={{ duration: 0.42, delay: 0.58, ease: [0.22, 1, 0.36, 1] }}
+          >
+            OPERATE
+          </motion.div>
           <div className="portrait-frame">
             <div className="portrait-backdrop" aria-hidden="true" />
             <img
@@ -90,15 +189,33 @@ const HeroSection = () => {
               loading="eager"
             />
           </div>
-          <div className="workbench-badge workbench-badge--status">
+          <motion.div
+            className="workbench-badge workbench-badge--status"
+            initial={reduceMotion ? false : { opacity: 0, y: 36, rotate: 4 }}
+            animate={{ opacity: 1, y: 0, rotate: -2 }}
+            transition={{ type: 'spring', stiffness: 130, damping: 15, delay: 0.7 }}
+          >
             <span aria-hidden="true">●</span> Open to opportunities
-          </div>
-          <div className="workbench-badge workbench-badge--location">📍 Delhi NCR</div>
-          <div className="workbench-code" aria-hidden="true">
+          </motion.div>
+          <motion.div
+            className="workbench-badge workbench-badge--location"
+            initial={reduceMotion ? false : { opacity: 0, x: 30, y: 20, rotate: 12 }}
+            animate={{ opacity: 1, x: 0, y: 0, rotate: 3 }}
+            transition={{ type: 'spring', stiffness: 130, damping: 15, delay: 0.76 }}
+          >
+            📍 Delhi NCR
+          </motion.div>
+          <motion.div
+            className="workbench-code"
+            aria-hidden="true"
+            initial={reduceMotion ? false : { opacity: 0, x: -34, y: 22, rotate: -6 }}
+            animate={{ opacity: 1, x: 0, y: 0, rotate: 2 }}
+            transition={{ type: 'spring', stiffness: 130, damping: 15, delay: 0.68 }}
+          >
             <span>IF</span> problem_is_messy
             <br />
             <span>THEN</span> make_it_testable
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 
