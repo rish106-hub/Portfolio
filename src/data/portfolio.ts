@@ -41,6 +41,10 @@ export interface Project {
   github: string;
   live?: string;
   release?: string;
+  proof: {
+    label: string;
+    href: string;
+  };
   accent: Accent;
 }
 
@@ -399,6 +403,10 @@ export const projects: Project[] = [
     github: 'https://github.com/rish106-hub/ARTH',
     live: 'https://arth-website.vercel.app',
     release: 'https://github.com/rish106-hub/ARTH/releases/tag/v1.0.0-debug.1',
+    proof: {
+      label: 'Launched on Product Hunt',
+      href: 'https://www.producthunt.com/products/arth-2',
+    },
     accent: 'mint',
   },
   {
@@ -410,6 +418,10 @@ export const projects: Project[] = [
     imageAlt: 'Mieru recruiter workspace with evidence-backed candidate shortlisting',
     tags: ['Next.js', 'FastAPI', 'PostgreSQL', 'Gemini 2.5'],
     github: 'https://github.com/rish106-hub/ats-frontend',
+    proof: {
+      label: 'Integrates with Koyo',
+      href: 'https://koyo.newtonschool.co/',
+    },
     accent: 'blue',
   },
   {
@@ -421,6 +433,10 @@ export const projects: Project[] = [
     imageAlt: 'Leadline extension interface showing a WhatsApp contact captured into a reviewed Google Sheet lead record',
     tags: ['Chrome extension', 'JavaScript', 'OAuth', 'Sheets API'],
     github: 'https://github.com/rish106-hub/Leadline',
+    proof: {
+      label: 'Open source on GitHub',
+      href: 'https://github.com/rish106-hub/Leadline',
+    },
     accent: 'yellow',
   },
   {
@@ -433,6 +449,10 @@ export const projects: Project[] = [
     tags: ['TypeScript', 'VS Code API', 'Vitest', 'GitHub Actions'],
     github: 'https://github.com/rish106-hub/gitdoc',
     live: 'https://marketplace.visualstudio.com/items?itemName=rish106-hub.git-rescue',
+    proof: {
+      label: 'Available on VS Code Marketplace',
+      href: 'https://marketplace.visualstudio.com/items?itemName=rish106-hub.git-rescue',
+    },
     accent: 'orange',
   },
 ];

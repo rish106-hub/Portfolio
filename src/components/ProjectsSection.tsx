@@ -1,4 +1,4 @@
-import { Github } from 'lucide-react';
+import { ArrowUpRight, Github } from 'lucide-react';
 import { BrutalCard, ExternalLinkButton, Reveal, SectionLabel, Tag } from './BrutalUI';
 import { projects, secondaryProjects } from '@/data/portfolio';
 
@@ -17,6 +17,17 @@ const ProjectsSection = () => (
             <BrutalCard accent={project.accent} className="project-card">
               <div className="project-image-wrap">
                 <img src={project.image} alt={project.imageAlt} loading="lazy" />
+                <a
+                  className="project-proof-link"
+                  href={project.proof.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${project.proof.label} for ${project.title}`}
+                >
+                  <span>Proof</span>
+                  {project.proof.label}
+                  <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
                 <span className={`project-stamp accent-${project.accent}`}>{project.role}</span>
               </div>
               <div className="project-copy">
@@ -57,7 +68,19 @@ const ProjectsSection = () => (
       </div>
 
       <div className="secondary-projects">
-        <p className="secondary-projects__label">More proof of work</p>
+        <div className="secondary-projects__heading">
+          <p className="secondary-projects__label">More proof of work</p>
+          <a
+            className="github-profile-link"
+            href="https://github.com/rish106-hub"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open Rishav Dewan's GitHub profile"
+          >
+            <Github size={24} aria-hidden="true" />
+            <span>All repositories</span>
+          </a>
+        </div>
         {secondaryProjects.map((project) => (
           <a key={project.title} href={project.href} target="_blank" rel="noreferrer" className="mini-project">
             <div>

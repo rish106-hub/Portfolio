@@ -8,6 +8,7 @@ import ProjectsSection from '@/components/ProjectsSection';
 import CertificationsSection from '@/components/CertificationsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import JourneyProgress from '@/components/JourneyProgress';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -73,6 +74,7 @@ const Index = () => {
       </AnimatePresence>
 
       <Navbar />
+      <JourneyProgress />
       <main>
         <HeroSection />
         <AboutSection />
