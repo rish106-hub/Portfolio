@@ -1,5 +1,5 @@
 import { ArrowUpRight, Github } from 'lucide-react';
-import { BrutalCard, ExternalLinkButton, Reveal, SectionLabel, Tag } from './BrutalUI';
+import { BrutalCard, ExternalLinkButton, NumericText, Reveal, SectionLabel, Tag } from './BrutalUI';
 import { projects, secondaryProjects } from '@/data/portfolio';
 
 const ProjectsSection = () => (
@@ -31,11 +31,11 @@ const ProjectsSection = () => (
               </div>
               <div className="project-copy">
                 <h3>{project.title}</h3>
-                <p>{project.description}</p>
+                <p><NumericText>{project.description}</NumericText></p>
                 <div className="tag-row">
                   {project.tags.map((tag) => (
                     <Tag key={tag} accent={project.accent}>
-                      {tag}
+                      <NumericText>{tag}</NumericText>
                     </Tag>
                   ))}
                 </div>

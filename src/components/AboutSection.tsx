@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
-import { BrutalCard, ExternalLinkButton, Reveal, SectionLabel, Tag } from './BrutalUI';
+import { BrutalCard, ExternalLinkButton, NumericText, Reveal, SectionLabel, Tag } from './BrutalUI';
 import { ownershipStories, profileCards, proofPoints, skillGroups } from '@/data/portfolio';
 
 const AboutSection = () => (
@@ -27,7 +27,7 @@ const AboutSection = () => (
               <h3>{card.headline}</h3>
               <ul>
                 {card.lines.map((line) => (
-                  <li key={line}>{line}</li>
+                  <li key={line}><NumericText>{line}</NumericText></li>
                 ))}
               </ul>
             </BrutalCard>
@@ -60,7 +60,7 @@ const AboutSection = () => (
                     <span>{story.metricLabel}</span>
                   </div>
                   <h3>{story.title}</h3>
-                  <p>{story.description}</p>
+                  <p><NumericText>{story.description}</NumericText></p>
                   {story.href ? <ArrowUpRight size={19} aria-hidden="true" /> : null}
                 </>
               );
@@ -104,11 +104,11 @@ const AboutSection = () => (
                 </span>
                 <p className="card-kicker">{proof.context}</p>
                 <h3>{proof.title}</h3>
-                <p>{proof.description}</p>
+                <p><NumericText>{proof.description}</NumericText></p>
                 <div className="tag-row">
                   {proof.tags.map((tag) => (
                     <Tag key={tag} accent={proof.accent}>
-                      {tag}
+                      <NumericText>{tag}</NumericText>
                     </Tag>
                   ))}
                 </div>

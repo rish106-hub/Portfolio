@@ -55,6 +55,7 @@ export interface Credential {
   accent: Accent;
   logo?: string;
   logoAlt?: string;
+  badgeIcon?: 'github';
 }
 
 export interface SkillGroup {
@@ -70,6 +71,14 @@ export interface SocialLink {
   href: string;
   icon: string;
   accent: Accent;
+}
+
+export interface InstitutionWin {
+  name: string;
+  logo: string;
+  logoAlt: string;
+  href: string;
+  fallbackMark: string;
 }
 
 export interface OwnershipStory {
@@ -94,6 +103,30 @@ export const resumeOptions = [
     href: 'https://drive.google.com/uc?export=download&id=1lyFKQf9T9PKrQIWw0VFdwtKVrfqoghD_',
   },
 ] as const;
+
+export const arthakramInstitutionalWins: InstitutionWin[] = [
+  {
+    name: "Masters' Union",
+    logo: 'https://cdn.mastersunion.link/MastersUnion_Logo_Facebook.png',
+    logoAlt: "Masters' Union logo",
+    href: 'https://mastersunion.org/',
+    fallbackMark: 'MU',
+  },
+  {
+    name: 'BITS School of Management',
+    logo: '/institution-logos/bitsom.png',
+    logoAlt: 'BITS School of Management logo',
+    href: 'https://bitsom.edu.in/',
+    fallbackMark: 'BITSoM',
+  },
+  {
+    name: 'Netaji Subhas University of Technology',
+    logo: '/institution-logos/nsut.png',
+    logoAlt: 'Netaji Subhas University of Technology logo',
+    href: 'https://nsut.ac.in/',
+    fallbackMark: 'NSUT',
+  },
+];
 
 export const ownershipStories: OwnershipStory[] = [
   {
@@ -413,8 +446,8 @@ export const projects: Project[] = [
     role: 'Product direction + mobile fintech',
     description:
       'A privacy-first tax-readiness app that identifies deduction gaps, compares tax regimes, and turns a complex filing problem into prioritized actions.',
-    image: '/arth-project.jpeg',
-    imageAlt: 'ARTH tax gap intelligence app screens',
+    image: '/arth-project.svg',
+    imageAlt: 'ARTH tax gap intelligence app interface showing a personalised tax-gap result and action plan',
     tags: ['Domain: fintech', 'Product: tax readiness', 'Engineering: Flutter', 'Data: PostgreSQL'],
     github: 'https://github.com/rish106-hub/ARTH',
     live: 'https://arth-website.vercel.app',
@@ -489,6 +522,7 @@ export const credentials: Credential[] = [
     detail: 'Sugar Labs Music Blocks + Apache Superset',
     href: 'https://github.com/pulls?q=is%3Apr+author%3Arish106-hub+is%3Amerged',
     accent: 'orange',
+    badgeIcon: 'github',
   },
   {
     label: 'IBM AI Product Manager',
