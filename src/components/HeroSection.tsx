@@ -111,30 +111,22 @@ const HeroSection = () => {
               Download resume
             </button>
           </motion.div>
-          <div className="hero-proof" aria-label="People reached through Rishav's work">
+          <div className="hero-proof" aria-label="Reach and commercial outcomes">
             <motion.div
               initial={reduceMotion ? false : { opacity: 0, y: 16, rotate: -2 }}
               animate={{ opacity: 1, y: 0, rotate: 0 }}
               transition={{ duration: 0.36, delay: 0.56, ease: [0.22, 1, 0.36, 1] }}
             >
               <strong>5M+</strong>
-              <span>learner reach</span>
+              <span>potential product reach</span>
             </motion.div>
             <motion.div
               initial={reduceMotion ? false : { opacity: 0, y: 16, rotate: 2 }}
               animate={{ opacity: 1, y: 0, rotate: 0 }}
               transition={{ duration: 0.36, delay: 0.62, ease: [0.22, 1, 0.36, 1] }}
             >
-              <strong>2,000+</strong>
-              <span>candidates screened through Mieru</span>
-            </motion.div>
-            <motion.div
-              initial={reduceMotion ? false : { opacity: 0, y: 16, rotate: -2 }}
-              animate={{ opacity: 1, y: 0, rotate: 0 }}
-              transition={{ duration: 0.36, delay: 0.68, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <strong>850+</strong>
-              <span>learners served through voice assessment</span>
+              <strong>$40k</strong>
+              <span>commercial value influenced</span>
             </motion.div>
           </div>
           <motion.p
