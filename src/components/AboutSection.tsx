@@ -9,7 +9,7 @@ const AboutSection = () => (
         <SectionLabel
           eyebrow="The short version"
           title="PROFILE"
-          description="I sit between product, engineering, and operations. The job is to find the real constraint, make the system understandable, and get something useful into people’s hands."
+          description="I work across product definition, technical delivery, and operating cadence. The job is to identify the real constraint, make the decision system understandable, and ship something that can be measured."
         />
         <Reveal className="profile-grid">
           {profileCards.map((card) => (
@@ -135,15 +135,16 @@ const AboutSection = () => (
       <div className="page-shell">
         <SectionLabel
           id="stack-title"
-          eyebrow="Tools are supporting actors"
+          eyebrow="A practical operating toolkit"
           title="BUILDER_STACK"
-          description="Enough range to move from problem framing to a working prototype, then test whether the product deserves to exist."
+          description="Six distinct capability areas used in sequence: define the problem, measure behavior, build the workflow, evaluate AI, analyze the business, and keep delivery moving."
         />
         <div className="stack-grid">
           {skillGroups.map((group) => (
             <Reveal key={group.category}>
               <div className={`stack-group accent-${group.accent}`}>
                 <h3>{group.category}</h3>
+                <p>{group.description}</p>
                 <div className="tag-row">
                   {group.items.map((item) => (
                     <Tag key={item} accent={group.accent}>

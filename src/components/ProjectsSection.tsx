@@ -24,7 +24,6 @@ const ProjectsSection = () => (
                   rel="noreferrer"
                   aria-label={`Open ${project.proof.label} for ${project.title}`}
                 >
-                  <span>Proof</span>
                   {project.proof.label}
                   <ArrowUpRight size={15} aria-hidden="true" />
                 </a>
@@ -72,10 +71,10 @@ const ProjectsSection = () => (
           <p className="secondary-projects__label">More proof of work</p>
           <a
             className="github-profile-link"
-            href="https://github.com/rish106-hub"
+            href="https://github.com/rish106-hub?tab=repositories"
             target="_blank"
             rel="noreferrer"
-            aria-label="Open Rishav Dewan's GitHub profile"
+            aria-label="Open all of Rishav Dewan's GitHub repositories"
           >
             <Github size={24} aria-hidden="true" />
             <span>All repositories</span>

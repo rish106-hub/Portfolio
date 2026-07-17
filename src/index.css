@@ -1201,10 +1201,6 @@ article.impact-org--story:hover {
   gap: 20px;
 }
 
-.stack-grid > div:last-child {
-  grid-column: 1 / -1;
-}
-
 .stack-group {
   min-height: 180px;
   padding: 26px;
@@ -1220,6 +1216,14 @@ article.impact-org--story:hover {
   background: var(--accent);
   font-family: 'Archivo Black', sans-serif;
   font-size: 1.25rem;
+}
+
+.stack-group > p {
+  min-height: 50px;
+  margin: 0 0 20px;
+  color: #29332d;
+  font-size: 0.94rem;
+  line-height: 1.55;
 }
 
 .stack-group .brutal-tag {
@@ -1484,21 +1488,10 @@ article.impact-org--story:hover {
   transition: transform 160ms ease, background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 
-.project-proof-link > span {
-  flex: 0 0 auto;
-  padding-right: 7px;
-  border-right: 1px solid currentColor;
-  color: var(--mint);
-}
-
 .project-proof-link:hover {
   transform: translate(-2px, -2px);
   background: var(--accent);
   box-shadow: 5px 5px 0 #111111;
-  color: #111111;
-}
-
-.project-proof-link:hover > span {
   color: #111111;
 }
 
