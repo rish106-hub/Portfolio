@@ -1702,6 +1702,81 @@ article.impact-org--story:hover {
   font-weight: 700;
 }
 
+.institutional-wins {
+  margin: 26px 0 28px;
+  padding: 18px;
+  border: 3px solid #111111;
+  background: color-mix(in srgb, #ffd84d 72%, #ffffff);
+  box-shadow: 5px 5px 0 #111111;
+}
+
+.institutional-wins .card-kicker {
+  margin: 0 0 14px;
+}
+
+.institutional-wins__logos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.institutional-win {
+  display: grid;
+  min-height: 116px;
+  grid-template-rows: 72px auto;
+  gap: 8px;
+  place-items: center;
+  padding: 10px 8px;
+  border: 2px solid #111111;
+  background: #ffffff;
+  color: #111111;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 #111111;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.institutional-win:hover,
+.institutional-win:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #111111;
+}
+
+.institutional-win__logo-wrap {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 72px;
+  place-items: center;
+}
+
+.institutional-win img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 72px;
+  object-fit: contain;
+}
+
+.institutional-win__fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #111111;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1rem;
+  letter-spacing: -0.06em;
+}
+
+.institutional-win > span:last-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
 .leadership-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1808,6 +1883,20 @@ article.impact-org--story:hover {
   transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
+.credential-badge-icon {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 2px solid var(--line);
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 3px 3px 0 var(--line);
+}
+
 .credential-logo {
   display: block;
   width: auto;
@@ -1895,9 +1984,17 @@ a.credential-card:hover {
   font-size: 0.8rem;
 }
 
-.social-card strong,
-.social-card small {
+.social-card > span:last-child {
+  min-width: 0;
+}
+
+.social-card > span:last-child > strong,
+.social-card > span:last-child > small {
   display: block;
+}
+
+.numeric-emphasis {
+  font-weight: 800;
 }
 
 .social-card strong {
@@ -1908,8 +2005,10 @@ a.credential-card:hover {
   margin-top: 2px;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.64rem;
-  overflow-wrap: anywhere;
+  line-height: 1.35;
+  white-space: nowrap;
 }
+
 
 .contact-form {
   padding: 34px;

@@ -1,5 +1,5 @@
 import { ArrowUpRight, MapPin, Youtube } from 'lucide-react';
-import { BrutalCard, Reveal, SectionLabel, Tag } from './BrutalUI';
+import { BrutalCard, NumericText, Reveal, SectionLabel, Tag } from './BrutalUI';
 import { experiences } from '@/data/portfolio';
 
 const ExperienceSection = () => (
@@ -36,24 +36,24 @@ const ExperienceSection = () => (
                   </div>
                 </div>
                 <div className="experience-meta">
-                  <span>{experience.period}</span>
+                  <span><NumericText>{experience.period}</NumericText></span>
                   <span>
                     <MapPin size={15} aria-hidden="true" /> {experience.location}
                   </span>
                 </div>
               </div>
               <div className="experience-body">
-                <p className="experience-summary">{experience.summary}</p>
+                <p className="experience-summary"><NumericText>{experience.summary}</NumericText></p>
                 <ul>
                   {experience.achievements.map((achievement) => (
-                    <li key={achievement}>{achievement}</li>
+                    <li key={achievement}><NumericText>{achievement}</NumericText></li>
                   ))}
                 </ul>
               </div>
               <div className="tag-row">
                 {experience.stack.map((item) => (
                   <Tag key={item} accent={experience.accent}>
-                    {item}
+                    <NumericText>{item}</NumericText>
                   </Tag>
                 ))}
               </div>

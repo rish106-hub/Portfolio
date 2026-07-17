@@ -1,0 +1,38 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#151515"/>
+  <path d="M0 734L551 0H0V734Z" fill="#F5C842"/>
+  <path d="M1246 900L1600 426V900H1246Z" fill="#F5C842"/>
+  <rect x="88" y="80" width="414" height="96" rx="8" fill="#F5C842"/>
+  <text x="120" y="140" fill="#151515" font-family="Arial, sans-serif" font-size="36" font-weight="700">TAX GAP</text>
+  <text x="88" y="262" fill="#F8F7F2" font-family="Arial, sans-serif" font-size="112" font-weight="800">ARTH</text>
+  <text x="94" y="322" fill="#A9A9A9" font-family="Arial, sans-serif" font-size="31">Find what your tax return is missing.</text>
+  <g transform="translate(967 78)">
+    <rect x="0" y="0" width="405" height="744" rx="54" fill="#0C0C0C" stroke="#F5C842" stroke-width="8"/>
+    <rect x="18" y="18" width="369" height="708" rx="39" fill="#1D1D1D"/>
+    <rect x="136" y="34" width="133" height="25" rx="13" fill="#0C0C0C"/>
+    <text x="50" y="104" fill="#A9A9A9" font-family="Arial, sans-serif" font-size="20">YOUR TAX GAP</text>
+    <text x="48" y="182" fill="#F5C842" font-family="Arial, sans-serif" font-size="66" font-weight="800">₹72,400</text>
+    <text x="50" y="217" fill="#A9A9A9" font-family="Arial, sans-serif" font-size="20">potentially left on the table / year</text>
+    <rect x="46" y="260" width="313" height="120" rx="16" fill="#292929" stroke="#3B3B3B" stroke-width="2"/>
+    <circle cx="78" cy="300" r="14" fill="#F5C842"/>
+    <text x="110" y="302" fill="#F8F7F2" font-family="Arial, sans-serif" font-size="21" font-weight="700">80C deductions</text>
+    <text x="110" y="334" fill="#A9A9A9" font-family="Arial, sans-serif" font-size="18">₹28,000 still available</text>
+    <rect x="46" y="398" width="313" height="120" rx="16" fill="#292929" stroke="#3B3B3B" stroke-width="2"/>
+    <circle cx="78" cy="438" r="14" fill="#F5C842"/>
+    <text x="110" y="440" fill="#F8F7F2" font-family="Arial, sans-serif" font-size="21" font-weight="700">Regime comparison</text>
+    <text x="110" y="472" fill="#A9A9A9" font-family="Arial, sans-serif" font-size="18">Old regime saves ₹19,400</text>
+    <rect x="46" y="563" width="313" height="84" rx="20" fill="#F5C842"/>
+    <text x="103" y="615" fill="#151515" font-family="Arial, sans-serif" font-size="24" font-weight="800">VIEW ACTION PLAN</text>
+  </g>
+  <g transform="translate(94 523)">
+    <rect width="601" height="222" rx="18" fill="#F8F7F2"/>
+    <text x="40" y="59" fill="#151515" font-family="Arial, sans-serif" font-size="23" font-weight="700">THE FLOW</text>
+    <text x="40" y="122" fill="#151515" font-family="Arial, sans-serif" font-size="54" font-weight="800">7 questions.</text>
+    <text x="40" y="181" fill="#151515" font-family="Arial, sans-serif" font-size="54" font-weight="800">3 minutes.</text>
+    <rect x="414" y="37" width="148" height="148" rx="74" fill="#F5C842"/>
+    <text x="452" y="131" fill="#151515" font-family="Arial, sans-serif" font-size="80" font-weight="800">₹</text>
+  </g>
+  <path d="M766 647H912" stroke="#F5C842" stroke-width="9"/>
+  <circle cx="838" cy="647" r="20" fill="#F5C842"/>
+  <text x="758" y="705" fill="#F8F7F2" font-family="Arial, sans-serif" font-size="24" font-weight="700">NOT A RUPEE LESS.</text>
+</svg>

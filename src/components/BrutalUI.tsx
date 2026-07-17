@@ -28,6 +28,23 @@ export const Tag = ({ children, accent = 'yellow' }: { children: ReactNode; acce
   <span className={`brutal-tag accent-${accent}`}>{children}</span>
 );
 
+const numericPattern = /(₹?\$?\d[\d,.]*(?:\s?(?:K|k|M|m|L|Cr|cr|%|x))?)/g;
+const numericTokenPattern = /^(₹?\$?\d[\d,.]*(?:\s?(?:K|k|M|m|L|Cr|cr|%|x))?)$/;
+
+export const NumericText = ({ children }: { children: string }) => (
+  <>
+    {children.split(numericPattern).map((part, index) =>
+      numericTokenPattern.test(part) ? (
+        <strong className="numeric-emphasis" key={`${part}-${index}`}>
+          {part}
+        </strong>
+      ) : (
+        part
+      ),
+    )}
+  </>
+);
+
 export const SectionLabel = ({
   id,
   eyebrow,
